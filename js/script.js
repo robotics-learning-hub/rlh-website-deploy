@@ -34,6 +34,41 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* =========================
+     SCHOOL ONBOARDING NOTICE
+  ========================= */
+  const schoolNotice = document.createElement("aside");
+  schoolNotice.className = "school-notice";
+  schoolNotice.setAttribute("role", "status");
+  schoolNotice.setAttribute("aria-live", "polite");
+  schoolNotice.innerHTML = `
+    <button type="button" class="school-notice-close" aria-label="Hide notice">x</button>
+    <p class="school-notice-kicker">School onboarding now open</p>
+    <h3>Bring Robotics, AI & Coding to your learners this term.</h3>
+    <p>More schools are joining RLH programs. Give your students the confidence to build, code, and create the future today.</p>
+    <a href="contact.html" class="school-notice-link">Bring RLH to your school</a>
+  `;
+  document.body.appendChild(schoolNotice);
+
+  const showSchoolNotice = () => {
+    schoolNotice.classList.add("is-visible");
+  };
+
+  const hideSchoolNotice = () => {
+    schoolNotice.classList.remove("is-visible");
+  };
+
+  setTimeout(() => {
+    showSchoolNotice();
+    setTimeout(hideSchoolNotice, 9000);
+  }, 2200);
+  setInterval(() => {
+    showSchoolNotice();
+    setTimeout(hideSchoolNotice, 9000);
+  }, 26000);
+
+  schoolNotice.querySelector(".school-notice-close")?.addEventListener("click", hideSchoolNotice);
+
+  /* =========================
      SCROLL REVEAL ANIMATION
   ========================= */
   const revealElements = document.querySelectorAll(".reveal");
@@ -235,10 +270,31 @@ Message: ${payload.message}`
   const programDetailDescription = document.getElementById("program-detail-description");
   const programDetailPoints = document.getElementById("program-detail-points");
   const programDetailLink = document.getElementById("program-detail-link");
+  const readMoreToggles = document.querySelectorAll(".read-more-toggle");
   let currentSearchResult = null;
   const cart = [];
   const CART_STORAGE_KEY = "rlh_cart";
   const CART_CUSTOMER_STORAGE_KEY = "rlh_cart_customer";
+  const CART_ITEM_MIGRATIONS = {
+    "Starter Robotics Kit": {
+      name: "RLH Explorer Kit",
+      priceNow: 190000,
+      priceWas: "UGX 250,000",
+      image: "images/RLH-explorer-kit.jpg"
+    },
+    "Arduino Learning Kit": {
+      name: "RLH Innovator Kit",
+      priceNow: 320000,
+      priceWas: "UGX 380,000",
+      image: "images/RLH-Innovator-Kit.jpg"
+    },
+    "School Lab Bundle": {
+      name: "RLH Pro Kit",
+      priceNow: 570000,
+      priceWas: "UGX 650,000",
+      image: "images/RLH-pro-kit.jpg"
+    }
+  };
 
   const formatCurrency = (value) => `UGX ${Number(value || 0).toLocaleString()}`;
 
@@ -276,13 +332,21 @@ Message: ${payload.message}`
       if (Array.isArray(storedCart)) {
         storedCart.forEach((item) => {
           if (item?.name && Number(item?.priceNow) >= 0 && Number(item?.quantity) > 0) {
-            cart.push({
-              name: item.name,
-              priceNow: Number(item.priceNow),
-              priceWas: item.priceWas || "",
-              image: item.image || "",
+            const migratedItem = CART_ITEM_MIGRATIONS[item.name] || {};
+            const cartItem = {
+              name: migratedItem.name || item.name,
+              priceNow: Number(migratedItem.priceNow || item.priceNow),
+              priceWas: migratedItem.priceWas || item.priceWas || "",
+              image: migratedItem.image || item.image || "",
               quantity: Number(item.quantity)
-            });
+            };
+            const existingItem = findCartItem(cartItem.name);
+
+            if (existingItem) {
+              existingItem.quantity += cartItem.quantity;
+            } else {
+              cart.push(cartItem);
+            }
           }
         });
       }
@@ -544,6 +608,19 @@ Message: ${payload.message}`
       button.addEventListener("click", () => renderProgramDetail(button));
     });
   }
+
+  readMoreToggles.forEach((button) => {
+    button.addEventListener("click", () => {
+      const card = button.closest(".program-card");
+      const extraContent = card?.querySelector(".program-extra");
+      if (!extraContent) return;
+
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
+      extraContent.hidden = isExpanded;
+      button.setAttribute("aria-expanded", String(!isExpanded));
+      button.textContent = isExpanded ? "Readmore" : "Show Less";
+    });
+  });
 
   loadCartState();
   renderCart();
