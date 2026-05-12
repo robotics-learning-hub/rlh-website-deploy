@@ -3,383 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kits & Materials | Robotics Learning Hub</title>
+  <title>Kits & Materials | Robotics Learning Hub (RLH)</title>
   <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <img src="images/logo.jpg" alt="RLH Logo" class="logo" width="60" height="60" />
-      <div class="brand-text">
-        <h1>ROBOTICS LEARNING HUB(RLH)</h1>
-        <span>+256 767 666 693 | roboticslh@gmail.com</span>
-      </div>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo-container"><img src="images/logo.jpg" alt="RLH Logo" class="logo" /><span class="brand-text"><strong>Robotics Learning Hub (RLH)</strong><span>Future Skills Academy</span></span></a>
+      <nav class="navbar" id="navbar"><a href="index.html">Home</a><a href="school-programs.html">School Programs</a><a href="programs.html">Future Skills Academy</a><a href="kits.html" class="active-link">Kits & Materials</a><a href="gallery.html">Gallery</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></nav>
+      <div class="nav-actions"><a href="contact.html" class="btn primary-btn nav-enroll-btn">Enroll Now</a><button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button></div>
     </div>
-
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <nav id="navbar">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="programs.html">Programs</a>
-      <a href="kits.html" class="active-link">Kits & Materials</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
 
-  <section class="page-hero kits-hero">
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-      <h2>RLH Kits & Learning Materials</h2>
-      <p>
-        Explore our complete range of hands-on STEM kits, including <strong style="color: #f2c400;">Explorer Kits</strong> 
-        for young beginners (5–9 years), <strong style="color: #f2c400;">Innovator & Pro Kits</strong> for advanced robotics 
-        and IoT projects, as well as <strong style="color: #f2c400;">Project-Based Kits</strong> and <strong style="color: #f2c400;">RLH Pack kits</strong> such as Sensor pack for focused practical learning. Designed for schools, families, and individual learners, every kit is built to deliver real skills through guided, hands-on innovation. Choose a kit and start building today.
-      </p>
-    </div>
-  </section>
+  <main>
+    <section class="page-hero kits-hero">
+      <div class="page-hero-content">
+        <p class="eyebrow">Kits & Learning Materials</p>
+        <h1>Practical STEM kits for classrooms, clubs, and young innovators.</h1>
+        <p>Explore RLH Explorer, Innovator, Pro, project, sensor, and component kits designed for hands-on robotics, electronics, Arduino, IoT, and smart technology learning.</p>
+        <div class="button-row"><a href="#kits-catalog" class="btn primary-btn">Browse Kits</a><a href="contact.html" class="btn ghost-btn">Request School Quote</a></div>
+      </div>
+    </section>
 
-  <section class="kits-intro-section reveal">
-    <div class="intro-box">
-      <h2>Build, Learn, and Innovate with Confidence</h2>
-        <p>
-          Our RLH kits and learning materials are purposefully designed to support hands-on STEM learning at every level-from young beginners exploring simple electronics 
-          to advanced learners building robotics and IoT systems. With options 
-          including <strong>Explorer Kits</strong>, <strong>Innovator and Pro Kits</strong>, as well as <strong>Project-based Kits</strong> and <strong>RLH Packs</strong>, each package is structured to deliver practical skills, guided learning, and real-world innovation. Choose a kit and start building with confidence today.
-        </p>
-    </div>
-  </section>
+    <section class="reveal">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Featured Kits</p>
+          <h2>Ready-to-use kits for real project-based learning.</h2>
+        </div>
+        <div class="grid grid-3">
+          <article class="sales-card" data-search="rlh explorer kit beginner electronics circuits young learners" data-name="RLH Explorer Kit" data-price-number="190000">
+            <img src="images/RLH-explorer-kit.jpg" alt="RLH Explorer Kit" loading="lazy" decoding="async" />
+            <div class="sales-card-body"><div class="sales-badges"><span class="sales-badge">Beginner</span><span class="sales-badge sales-badge-accent">Ages 5-9</span></div><div class="sales-card-top"><h3>RLH Explorer Kit</h3><span class="price-stack"><span class="price-was">UGX 250,000</span><span class="price-tag">UGX 190,000</span></span></div><p>Safe beginner electronics kit for early STEM curiosity, circuits, and guided discovery.</p><button type="button" class="btn primary-btn add-to-cart-btn">Add to Cart</button></div>
+          </article>
+          <article class="sales-card" data-search="rlh innovator kit arduino sensors jumper wires coding electronics" data-name="RLH Innovator Kit" data-price-number="320000">
+            <img src="images/RLH-Innovator-Kit.jpg" alt="RLH Innovator Kit" loading="lazy" decoding="async" />
+            <div class="sales-card-body"><div class="sales-badges"><span class="sales-badge">Arduino</span><span class="sales-badge sales-badge-accent">Popular</span></div><div class="sales-card-top"><h3>RLH Innovator Kit</h3><span class="price-stack"><span class="price-was">UGX 380,000</span><span class="price-tag">UGX 320,000</span></span></div><p>Complete Arduino and electronics kit for coding, sensors, prototyping, and project builds.</p><button type="button" class="btn primary-btn add-to-cart-btn">Add to Cart</button></div>
+          </article>
+          <article class="sales-card" data-search="rlh pro kit esp32 iot smart systems automation sensors" data-name="RLH Pro Kit" data-price-number="570000">
+            <img src="images/RLH-pro-kit.jpg" alt="RLH Pro Kit" loading="lazy" decoding="async" />
+            <div class="sales-card-body"><div class="sales-badges"><span class="sales-badge">IoT</span><span class="sales-badge sales-badge-accent">Advanced</span></div><div class="sales-card-top"><h3>RLH Pro Kit</h3><span class="price-stack"><span class="price-was">UGX 650,000</span><span class="price-tag">UGX 570,000</span></span></div><p>ESP32-powered kit for IoT, smart automation, connected devices, and advanced prototypes.</p><button type="button" class="btn primary-btn add-to-cart-btn">Add to Cart</button></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <section class="kits-order-section reveal"> 
-  <div class="section-heading">
-    <p class="section-eyebrow">How To Order</p>
-    <h2>Simple Steps to Get Started</h2>
-  </div>
+    <section class="soft-band reveal">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Categories</p>
+          <h2>Choose the right learning material for your pathway.</h2>
+        </div>
+        <div class="grid grid-4">
+          <article class="option-card"><h3>Starter Kits</h3><p>Safe early electronics and circuit-building kits for younger learners.</p></article>
+          <article class="option-card"><h3>Arduino Kits</h3><p>Boards, sensors, displays, relays, and coding resources for systems learning.</p></article>
+          <article class="option-card"><h3>Project Kits</h3><p>Traffic lights, rovers, automation projects, and guided practical builds.</p></article>
+          <article class="option-card"><h3>School Bundles</h3><p>Custom lab, club, and classroom bundles for schools and STEM coordinators.</p></article>
+        </div>
+      </div>
+    </section>
 
-  <div class="kits-order-grid">
-
-    <div class="order-step-card">
-      <span class="order-step-number">1</span>
-      <h3>Explore Available Kits</h3>
-      <p>Browse our range of RLH Explorer, Innovator, Pro, Project Kits, and Sensor Packs to find the right fit for your learner or school.</p>
-    </div>
-
-    <div class="order-step-card">
-      <span class="order-step-number">2</span>
-      <h3>Select the Right Package</h3>
-      <p>Review kit details, learning outcomes, and recommended levels to choose the most suitable option for your needs.</p>
-    </div>
-
-    <div class="order-step-card">
-      <span class="order-step-number">3</span>
-      <h3>Order via WhatsApp</h3>
-      <p>Send your order and our team will quickly guide you through confirmation, payment, and delivery to get you started without delay.</p>
-    </div>
-
-  </div>
-</section>
-
-  <section class="kits-sales-section reveal">
-    <div class="section-heading">
-      <p class="section-eyebrow">Available for Purchase</p>
-      <h2>Featured Kits & Full Inventory</h2>
-        <p>Explore our most popular STEM kits, then browse the full collection of available learning kits 
-          and project packs to find the perfect solution for your needs.</p>
-    </div>
-
-    <div class="kits-search-wrap">
-      <label class="kits-search-label" for="kits-search">Search for a component, kit, or material</label>
-      <input
-        type="search"
-        id="kits-search"
-        class="kits-search-input"
-        placeholder="Search Explorer, sensors, Obstacle, Project kit..."
-        aria-label="Search kits and materials"
-      />
-      <p id="kits-search-status" class="kits-search-status">Showing all available kits and materials.</p>
-    </div>
-
-    <div class="kits-catalog-layout">
-      <div class="kits-grid">
-      <article class="sales-card sales-card-large" data-search="rlh explorer kit starter robotics kit electronics beginner circuits club home practice components" data-name="RLH Explorer Kit" data-image="images/RLH-explorer-kit.jpg" data-price-was="UGX 250,000" data-price-now="UGX 190,000" data-price-number="190000">
-        <img src="images/RLH-explorer-kit.jpg" alt="RLH Explorer Kit" loading="lazy" decoding="async" />
-        <div class="sales-card-body">
-          <div class="sales-badges">
-            <span class="sales-badge">Best for Beginners</span>
-            <span class="sales-badge sales-badge-accent">On Sale</span>
+    <section class="reveal" id="kits-catalog">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Full Inventory</p>
+          <h2>Search kits, components, and materials.</h2>
+          <p>Use quick inquiry or add items to the cart, then submit the order through WhatsApp.</p>
+        </div>
+        <div class="kits-search-wrap">
+          <label class="kits-search-label" for="kits-search">Search for a component, kit, or material</label>
+          <input type="search" id="kits-search" class="kits-search-input" placeholder="Search Explorer, sensors, rover, Arduino..." />
+          <p id="kits-search-status" class="kits-search-status">Showing all available kits and materials.</p>
+        </div>
+        <div class="kits-catalog-layout">
+          <div class="kits-grid">
+            <article class="sales-card" data-search="automatic street light project sensor lighting kit" data-name="Automatic Street Light Project" data-price-number="90000"><img src="images/Automatics-Street.jpg" alt="Automatic street light kit" loading="lazy" decoding="async" /><div class="sales-card-body"><div class="sales-card-top"><h3>Automatic Street Light Project</h3><span class="price-stack"><span class="price-was">UGX 120,000</span><span class="price-tag">UGX 90,000</span></span></div><p>Project kit for sensor-based lighting and real-world control logic.</p><button type="button" class="btn primary-btn add-to-cart-btn">Add to Cart</button></div></article>
+            <article class="sales-card" data-search="obstacle avoiding rover kit robot chassis ultrasonic" data-name="Obstacle Avoiding Rover Kit" data-price-number="175000"><img src="images/Obstacle-kit.jpg" alt="Obstacle avoiding rover kit" loading="lazy" decoding="async" /><div class="sales-card-body"><div class="sales-card-top"><h3>Obstacle Avoiding Rover Kit</h3><span class="price-stack"><span class="price-was">UGX 220,000</span><span class="price-tag">UGX 175,000</span></span></div><p>Robotics rover kit for motors, movement, sensing, and autonomous navigation practice.</p><button type="button" class="btn primary-btn add-to-cart-btn">Add to Cart</button></div></article>
+            <article class="sales-card" data-search="sensor starter pack ultrasonic pir soil moisture ir dht11" data-name="5 Sensor Starter Pack" data-price-number="68000"><img src="images/Sensor-kit.jpg" alt="Sensor starter pack" loading="lazy" decoding="async" /><div class="sales-card-body"><div class="sales-card-top"><h3>5 Sensor Starter Pack</h3><span class="price-stack"><span class="price-was">UGX 90,000</span><span class="price-tag">UGX 68,000</span></span></div><p>Ultrasonic, PIR, soil moisture, IR tracking, and DHT11 sensors for smart systems.</p><button type="button" class="btn primary-btn add-to-cart-btn">Add to Cart</button></div></article>
           </div>
-          <div class="sales-card-top">
-            <h3>RLH Explorer Kit</h3>
-            <div class="price-stack">
-              <span class="price-was">UGX 250,000</span>
-              <span class="price-tag">UGX 190,000</span>
+          <aside class="inventory-sidebar">
+            <h3>Quick Inquiry List</h3>
+            <p>Tap an item to preview the kit, then add it to your cart.</p>
+            <div class="inventory-preview" id="inventory-preview" aria-live="polite"><img id="inventory-preview-image" src="images/jumperwire.jpg" alt="120 Jumper Wires & Breadboard Pack" loading="lazy" decoding="async" /><div class="inventory-preview-body"><h4 id="inventory-preview-name">120 Jumper Wires & Breadboard Pack</h4><p id="inventory-preview-description">Male-male, male-female, female-female wires and breadboard for practical prototyping.</p><strong id="inventory-preview-price">UGX 62,000</strong><button type="button" class="btn primary-btn inventory-add-btn" id="inventory-add-btn"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Add Previewed Kit</button></div></div><div class="inventory-list">
+              <button type="button" class="inventory-item" data-search="jumper wires breadboard prototyping pack" data-name="120 Jumper Wires & Breadboard Pack" data-price-number="62000" data-image="images/jumperwire.jpg" data-description="Male-male, male-female, female-female wires and breadboard for practical prototyping."><span><span class="inventory-name">120 Jumper Wires & Breadboard Pack</span><span class="inventory-note">Male-male, male-female, female-female, breadboard.</span></span><span class="inventory-price-stack"><span class="inventory-price-was">UGX 75,000</span><span class="inventory-price">UGX 62,000</span></span></button>
+              <button type="button" class="inventory-item" data-search="robot chassis pack wheels motors robotics" data-name="Robot Chassis Pack" data-price-number="120000" data-image="images/wheel.jpg" data-description="Chassis parts, wheels, and motor-ready components for mobile robotics builds."><span><span class="inventory-name">Robot Chassis Pack</span><span class="inventory-note">Chassis parts for mobile robotics builds.</span></span><span class="inventory-price-stack"><span class="inventory-price-was">UGX 180,000</span><span class="inventory-price">UGX 120,000</span></span></button>
+              <button type="button" class="inventory-item" data-search="arduino module pack lcd relay bluetooth rfid motor driver" data-name="5-Arduino Module Pack" data-price-number="135000" data-image="images/modulePack.jpg" data-description="LCD, relay, Bluetooth, RFID, and motor driver modules for Arduino systems."><span><span class="inventory-name">5-Arduino Module Pack</span><span class="inventory-note">LCD, relay, Bluetooth, RFID, and motor driver.</span></span><span class="inventory-price-stack"><span class="inventory-price-was">UGX 170,000</span><span class="inventory-price">UGX 135,000</span></span></button>
             </div>
-          </div>
-          <p>A carefully designed starter kit for young innovators aged 5–9 to explore the fundamentals of electronics through safe, hands-on activities. Perfect for building early confidence in STEM through guided, play-based learning.</p>
-
-        <ul class="program-list">
-          <li>Simple and safe electronics components for beginners</li>
-          <li>Hands-on circuit building and discovery activities</li>
-          <li>Develops curiosity, creativity, and problem-solving skills</li>
-          <li>Ideal for home learning, early STEM clubs, and first-time makers</li>
-        </ul>
-          <button type="button" class="btn primary-btn add-to-cart-btn">Add to Cart</button>
+          </aside>
         </div>
-      </article>
-
-      <article class="sales-card sales-card-large" data-search="rlh innovator kit arduino learning kit board sensors jumper wires prototyping coding embedded systems electronics" data-name="RLH Innovator Kit" data-image="images/RLH-Innovator-Kit.jpg" data-price-was="UGX 380,000" data-price-now="UGX 320,000" data-price-number="320000">
-        <img src="images/RLH-Innovator-Kit.jpg" alt="RLH Innovator Kit" loading="lazy" decoding="async" />
-        <div class="sales-card-body">
-          <div class="sales-badges">
-            <span class="sales-badge">Arduino</span>
-            <span class="sales-badge sales-badge-accent">Popular Choice</span>
-          </div>
-          <div class="sales-card-top">
-            <h3>RLH Innovator Kit</h3>
-            <div class="price-stack">
-              <span class="price-was">UGX 380,000</span>
-              <span class="price-tag">UGX 320,000</span>
-            </div>
-          </div>
-          <p>A complete innovation kit designed for learners ready to advance into Arduino programming, embedded systems, and real-world electronics development. Essential for anyone enrolled in the Arduino Mastery Program or progressing into structured innovation projects.</p>
-
-          <ul class="program-list">
-            <li>Arduino board with essential development accessories</li>
-            <li>Wide range of sensors, jumper wires, and prototyping tools</li>
-            <li>Supports hands-on coding, testing, and real project development</li>
-            <li>Over 20+ practical projects can be built using the components in this kit</li>
-            <li>Includes a project reference card listing possible builds and ideas for experimentation</li>
-          </ul>
-          <button type="button" class="btn primary-btn add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <article class="sales-card sales-card-large" data-search="rlh pro kit school lab bundle classroom club stations reusable electronics materials demos institutional package iot esp32" data-name="RLH Pro Kit" data-image="images/RLH-pro-kit.jpg" data-price-was="UGX 650,000" data-price-now="UGX 570,000" data-price-number="570000">
-        <img src="images/RLH-pro-kit.jpg" alt="RLH Pro Kit" loading="lazy" decoding="async" />
-        <div class="sales-card-body">
-          <div class="sales-badges">
-            <span class="sales-badge">For Schools</span>
-            <span class="sales-badge sales-badge-accent">IOT Friendly</span>
-          </div>
-          <div class="sales-card-top">
-            <h3>RLH Pro Kit</h3>
-            <div class="price-stack">
-              <span class="price-was">UGX 650,000</span>
-              <span class="price-tag">UGX 570,000</span>
-            </div>
-          </div>
-          <p>An advanced innovation kit powered by the ESP32, designed for IoT projects, smart systems, and real-world automation. Perfect for learners building connected devices using sensors, wireless communication, and full project prototyping to bring smart ideas to life.</p>
-
-          <ul class="program-list">
-            <li>ESP32 board for Wi-Fi and Bluetooth-based IoT development</li>
-            <li>Advanced sensors and components for smart system integration</li>
-            <li>Supports wireless communication, automation, and real-time control projects</li>
-            <li>Enables 35+ projects & IoT projects, robotics, and embedded system projects</li>
-            <li>Includes a project idea card listing possible smart system and IoT builds</li>
-          </ul>
-          <button type="button" class="btn primary-btn add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
+        <p id="kits-empty-state" class="kits-empty-state" hidden>No matching kit or material found. Try another search term.</p>
       </div>
+    </section>
 
-      <aside class="inventory-sidebar">
-        <h3>Available Kits & Materials</h3>
-        <p>Browse kits and materials with sale prices shown upfront.</p>
-        <div class="inventory-list" id="inventory-list">
-          <button type="button" class="inventory-item" data-search="Automatic street light project kit: A practical project kit with manual designed to help learners understand how automatic lighting systems work using sensors and real-world control logic.No programming needed" data-name="Automatic street light project" data-image="images/Automatics-Street.jpg" data-price-was="UGX 120,000" data-price-now="UGX 90,000" data-price-number="90000">
-            <span class="inventory-copy">
-              <span class="inventory-name">Automatic street light project</span>
-            </span>
-            <span class="inventory-price-stack">
-              <span class="inventory-price-was">UGX 120,000</span>
-              <span class="inventory-price">UGX 90,000</span>
-            </span>
-          </button>
-          <button type="button" class="inventory-item" data-search="5 sensor starter pack ultrasonic infrared beginner component bundle" data-name="Sensor Starter Pack" data-image="images/Sensor-kit.jpg" data-price-was="UGX 90,000" data-price-now="UGX 68,000" data-price-number="68000">
-            <span class="inventory-copy">
-              <span class="inventory-name">5 Sensor Starter Pack</span>
-              <span class="inventory-note">Ultrosonic sensor, PIR motion sensor, Resisitive soil moisture sensor, IR sensor line tracking, DHT11 sensor</span>
-            </span>
-            <span class="inventory-price-stack">
-              <span class="inventory-price-was">UGX 90,000</span>
-              <span class="inventory-price">UGX 68,000</span>
-            </span>
-          </button>
-          <button type="button" class="inventory-item" data-search="120 jumper wires - Prototyping Breadboard Pack" data-name="120 jumper wires - Prototyping Breadboard Pack" data-image="images/jumperwire.jpg" data-price-was="UGX 75,000" data-price-now="UGX 62,000" data-price-number="62000">
-            <span class="inventory-copy">
-              <span class="inventory-name">120 jumper wires - Prototyping Breadboard Pack</span>
-              <span class="inventory-note">40-Male Male, 40-Male-Female, 40-Female-Female, 1-Breadboard</span>
-            </span>
-            <span class="inventory-price-stack">
-              <span class="inventory-price-was">UGX 75,000</span>
-              <span class="inventory-price">UGX 62,000</span>
-            </span>
-          </button>
-          <button type="button" class="inventory-item" data-search="Robot Chassis Pack" data-name="Robot Chassis Pack" data-image="images/wheel.jpg" data-price-was="UGX 180,000" data-price-now="UGX 120,000" data-price-number="120000">
-            <span class="inventory-copy">
-              <span class="inventory-name">Robot Chassis Pack</span>
-            </span>
-            <span class="inventory-price-stack">
-              <span class="inventory-price-was">UGX 180,000</span>
-              <span class="inventory-price">UGX 120,000</span>
-            </span>
-          </button>
-          <button type="button" class="inventory-item" data-search="Obstacle avoiding rover kit" data-name="Obstacle avoiding rover kit" data-image="images/Obstacle-kit.jpg" data-price-was="UGX 220,000" data-price-now="UGX 175,000" data-price-number="175000">
-            <span class="inventory-copy">
-              <span class="inventory-name">Obstacle avoiding rover kit</span>
-            </span>
-            <span class="inventory-price-stack">
-              <span class="inventory-price-was">UGX 220,000</span>
-              <span class="inventory-price">UGX 175,000</span>
-            </span>
-          </button>
-          <button type="button" class="inventory-item" data-search="5-Arduino module pack lcd relay bluetooth rfid motor driver" data-name="5-Arduino module pack" data-image="images/modulePack.jpg" data-price-was="UGX 170,000" data-price-now="UGX 135,000" data-price-number="135000">
-            <span class="inventory-copy">
-              <span class="inventory-name">5-Arduino module pack</span>
-              <span class="inventory-note">1~16X2 LCD Module, 1~3.5V 10A Relay module, 1~HC-05 Bluetooth module, 1~RC522 RFID Card module, 1~L298N-2motor driver module</span>
-            </span>
-            <span class="inventory-price-stack">
-              <span class="inventory-price-was">UGX 170,000</span>
-              <span class="inventory-price">UGX 135,000</span>
-            </span>
-          </button>
-         
-        </div>
-      </aside>
-    </div>
-    <p id="kits-empty-state" class="kits-empty-state" hidden>No matching kit or material found. Try a different search term.</p>
-    <div id="inventory-result" class="inventory-result" hidden>
-      <div class="inventory-result-card">
-        <p class="section-eyebrow">Search Result</p>
-        <div class="inventory-result-layout">
-          <img id="inventory-result-image" src="images/robotics-kits.jpg" alt="Search result item" />
-          <div class="inventory-result-content">
-            <h3 id="inventory-result-name">Item Name</h3>
-            <div class="inventory-result-prices">
-              <span id="inventory-result-was" class="price-was">UGX 0</span>
-              <span id="inventory-result-now" class="price-tag">UGX 0</span>
-            </div>
-            <div class="result-action-bar">
-              <button type="button" id="inventory-result-add" class="btn primary-btn">Add to Cart</button>
-              <span id="inventory-result-note" class="result-note">Search for an item, then add it to your cart.</span>
-            </div>
-          </div>
+    <section class="reveal">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Your Cart</p><h2>Review your order before sending it.</h2><p id="cart-feedback" class="cart-feedback" aria-live="polite"></p></div>
+        <div class="cart-layout">
+          <div class="cart-card"><div id="cart-items" class="cart-items"><p class="cart-empty">Your cart is empty. Add a kit or material to begin.</p></div></div>
+          <div class="cart-summary-card"><h3>Order Summary</h3><div class="cart-total-row"><span>Total</span><strong id="cart-total">UGX 0</strong></div><div class="cart-customer-form"><label for="cart-customer-name">Your Name</label><input type="text" id="cart-customer-name" placeholder="Enter your full name" /><label for="cart-customer-contact">Phone or WhatsApp Number</label><input type="text" id="cart-customer-contact" placeholder="Enter your phone number" /></div><button type="button" id="cart-submit" class="btn primary-btn cart-submit-btn">Submit Order on WhatsApp</button></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="cart-section reveal">
-    <div class="section-heading">
-      <p class="section-eyebrow">Your Cart</p>
-      <h2>Review your order before sending it</h2>
-      <p>The cart total updates automatically and your WhatsApp order will include your name and contact for follow-up.</p>
-    </div>
-    <div class="cart-layout">
-      <div class="cart-card">
-        <div id="cart-items" class="cart-items">
-          <p class="cart-empty">Your cart is empty. Add a kit or material to begin.</p>
-        </div>
-      </div>
-      <div class="cart-summary-card">
-        <h3>Order Summary</h3>
-        <div class="cart-total-row">
-          <span>Total</span>
-          <strong id="cart-total">UGX 0</strong>
-        </div>
-        <div class="cart-customer-form">
-          <label for="cart-customer-name">Your Name</label>
-          <input type="text" id="cart-customer-name" placeholder="Enter your full name" />
-          <label for="cart-customer-contact">Phone or WhatsApp Number</label>
-          <input type="text" id="cart-customer-contact" placeholder="Enter your phone number" />
-        </div>
-        <button type="button" id="cart-submit" class="btn primary-btn cart-submit-btn">Submit Order on WhatsApp</button>
-      </div>
-    </div>
-  </section>
+    <section class="dark-cta reveal"><div class="cta-panel"><div><h2>Need a custom school bundle?</h2><p>RLH can recommend kits and materials based on age, class size, club model, and budget.</p></div><div class="button-row"><a href="contact.html" class="btn primary-btn">Request a Quote</a><a href="school-programs.html" class="btn ghost-btn">School Programs</a></div></div></section>
+  </main>
 
-  <section class="kits-value-section reveal">
-    <div class="difference-grid">
-      <div class="difference-card">
-        <h3>Quality You Can Trust</h3>
-        <p>Every package is chosen to support safe, practical, and engaging robotics learning experiences.</p>
-      </div>
-      <div class="difference-card">
-        <h3>Designed for Real Learning</h3>
-        <p>Our materials are selected to help learners move from theory into confident project execution.</p>
-      </div>
-      <div class="difference-card">
-        <h3>Support for Schools and Families</h3>
-        <p>We help clients choose the right kits for age, learning goals, and classroom or home setup.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="kits-testimonials-section reveal">
-    <div class="section-heading">
-      <p class="section-eyebrow">Why Buyers Trust RLH</p>
-      <h2>Built for practical learning, not just display</h2>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <p>"The kits helped our learners move from watching to actually building."</p>
-        <h4>School STEM Coordinator</h4>
-      </div>
-      <div class="testimonial-card">
-        <p>"The materials were easy to use and made weekend practice much more engaging."</p>
-        <h4>Parent of an RLH learner</h4>
-      </div>
-      <div class="testimonial-card">
-        <p>"RLH guided us on the right package instead of pushing the most expensive option."</p>
-        <h4>School Administrator</h4>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section reveal">
-    <h2>Need a Custom Quote?</h2>
-    <p>We can prepare school bundles, STEM club packages, or a recommended kit list based on your learners and budget.</p>
-    <a href="contact.html" class="btn primary-btn">Request a Quote</a>
-  </section>
-
-  <a href="https://wa.me/256767666693" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">Chat</a>
-
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <h3>Robotics Learning Hub</h3>
-        <p>Robotics & AI training, school programs, and STEM kits that build real-world skills.</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <a href="index.html">Home</a>
-        <a href="programs.html">Programs</a>
-        <a href="kits.html">Kits & Materials</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <a href="https://wa.me/256767666693" target="_blank">WhatsApp: +256 767 666 693</a>
-        <a href="tel:+256767666693">Call: +256 767 666 693</a>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=roboticslh@gmail.com" target="_blank">roboticslh@gmail.com</a>
-      </div>
-      <div>
-        <h4>Follow Us</h4>
-        <a href="https://www.linkedin.com/company/robotics-learning-hub" target="_blank">LinkedIn</a>
-        <a href="https://www.instagram.com/roboticslearninghub?igsh=MTZndnVnenVyejdiOQ==" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@roboticslearningh?_r=1&_t=ZS-95N06qeUDLu" target="_blank">TikTok</a>
-        <a href="https://www.youtube.com/@roboticslearningh" target="_blank">YouTube</a>
-      </div>
-    </div>
-    <p class="footer-bottom">&copy; 2026 Robotics Learning Hub | Kampala, Uganda | Developed by Robotics Learning Hub</p>
-  </footer>
-
+  <a href="https://wa.me/256767666693" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+  <footer class="site-footer"><div class="footer-grid"><div><h3>Robotics Learning Hub (RLH)</h3><p>STEM kits, school bundles, and learning materials for practical future skills.</p></div><div><h4>Quick Links</h4><a href="index.html">Home</a><a href="school-programs.html">School Programs</a><a href="programs.html">Future Skills Academy</a><a href="contact.html">Contact</a></div><div><h4>Kit Categories</h4><a href="kits.html">Starter Kits</a><a href="kits.html">Arduino Kits</a><a href="kits.html">Project Kits</a><a href="kits.html">School Bundles</a></div><div><h4>Contact</h4><a href="https://wa.me/256767666693" target="_blank" rel="noopener noreferrer">WhatsApp: +256 767 666 693</a><a href="mailto:roboticslh@gmail.com">roboticslh@gmail.com</a><div class="footer-social"><a href="https://www.linkedin.com/company/robotics-learning-hub" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://www.instagram.com/roboticslearninghub?igsh=MTZndnVnenVyejdiOQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.tiktok.com/@roboticslearningh?_r=1&_t=ZS-95N06qeUDLu" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a><a href="https://www.youtube.com/@roboticslearningh" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div></div></div><p class="footer-bottom">&copy; 2026 Robotics Learning Hub (RLH) | Kampala, Uganda | Built by Robotics Learning Hub (RLH)</p></footer>
   <script src="js/script.js"></script>
 </body>
 </html>

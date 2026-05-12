@@ -1,366 +1,232 @@
-document.addEventListener("DOMContentLoaded", function () {
-  /* =========================
-     HERO BACKGROUND SLIDER
-  ========================= */
+document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-    });
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-
   if (slides.length > 1) {
-    showSlide(currentSlide);
-    setInterval(nextSlide, 5000);
+    slides[0].classList.add("active");
+    setInterval(() => {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }, 5200);
   }
 
-  /* =========================
-     MOBILE HAMBURGER MENU
-  ========================= */
   const menuToggle = document.getElementById("menu-toggle");
   const navbar = document.getElementById("navbar");
 
   if (menuToggle && navbar) {
     menuToggle.addEventListener("click", () => {
       navbar.classList.toggle("active");
+      menuToggle.setAttribute("aria-expanded", String(navbar.classList.contains("active")));
+    });
+
+    navbar.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => navbar.classList.remove("active"));
     });
   }
 
-  /* =========================
-     SCHOOL ONBOARDING NOTICE
-  ========================= */
-  const schoolNotice = document.createElement("aside");
-  schoolNotice.className = "school-notice";
-  schoolNotice.setAttribute("role", "status");
-  schoolNotice.setAttribute("aria-live", "polite");
-  schoolNotice.innerHTML = `
-    <button type="button" class="school-notice-close" aria-label="Hide notice">x</button>
-    <p class="school-notice-kicker">School onboarding now open</p>
-    <h3>Bring Robotics, AI & Coding to your learners this term.</h3>
-    <p>More schools are joining RLH programs. Give your students the confidence to build, code, and create the future today.</p>
-    <a href="contact.html" class="school-notice-link">Bring RLH to your school</a>
-  `;
-  document.body.appendChild(schoolNotice);
-
-  const showSchoolNotice = () => {
-    schoolNotice.classList.add("is-visible");
-  };
-
-  const hideSchoolNotice = () => {
-    schoolNotice.classList.remove("is-visible");
-  };
-
-  setTimeout(() => {
-    showSchoolNotice();
-    setTimeout(hideSchoolNotice, 9000);
-  }, 2200);
-  setInterval(() => {
-    showSchoolNotice();
-    setTimeout(hideSchoolNotice, 9000);
-  }, 26000);
-
-  schoolNotice.querySelector(".school-notice-close")?.addEventListener("click", hideSchoolNotice);
-
-  /* =========================
-     SCROLL REVEAL ANIMATION
-  ========================= */
   const revealElements = document.querySelectorAll(".reveal");
+  revealElements.forEach((element) => element.classList.add("hidden-reveal"));
 
-  revealElements.forEach((el) => {
-    el.classList.add("hidden-reveal");
-  });
-
-  function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-
-    revealElements.forEach((element) => {
-      const elementTop = element.getBoundingClientRect().top;
-
-      if (elementTop < windowHeight - 100) {
-        element.classList.add("active");
-        element.classList.remove("hidden-reveal");
-      }
-    });
-  }
-
-  revealOnScroll();
-  window.addEventListener("scroll", revealOnScroll);
-
-  /* =========================
-     HEADER SHADOW ON SCROLL
-  ========================= */
-  const header = document.querySelector("header");
-
-  window.addEventListener("scroll", () => {
-    if (!header) return;
-
-    if (window.scrollY > 50) {
-      header.style.boxShadow = "0 8px 20px rgba(0,0,0,0.18)";
-    } else {
-      header.style.boxShadow = "0 4px 15px rgba(0,0,0,0.12)";
-    }
-  });
-
-  /* =========================
-     ANIMATED COUNTERS
-  ========================= */
-  const counters = document.querySelectorAll(".counter");
-  let counterStarted = false;
-
-  function runCounters() {
-    counters.forEach((counter) => {
-      const target = Number(counter.getAttribute("data-target"));
-      let count = 0;
-      const increment = Math.max(1, Math.ceil(target / 100));
-
-      function updateCounter() {
-        count += increment;
-        if (count < target) {
-          counter.innerText = count + "+";
-          requestAnimationFrame(updateCounter);
-        } else {
-          counter.innerText = target + "+";
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          entry.target.classList.remove("hidden-reveal");
+          revealObserver.unobserve(entry.target);
         }
-      }
+      });
+    },
+    { threshold: 0.12 }
+  );
 
-      updateCounter();
+  revealElements.forEach((element) => revealObserver.observe(element));
+
+  const counters = document.querySelectorAll(".counter");
+  const statsSection = document.querySelector(".stats-section");
+
+  const runCounters = () => {
+    counters.forEach((counter) => {
+      const target = Number(counter.dataset.target || 0);
+      const suffix = counter.dataset.suffix || "+";
+      const duration = 1200;
+      const start = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const value = Math.floor(progress * target);
+        counter.textContent = `${value}${suffix}`;
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+
+      requestAnimationFrame(tick);
     });
+  };
+
+  if (statsSection && counters.length) {
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          runCounters();
+          counterObserver.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    counterObserver.observe(statsSection);
   }
 
-  function startCountersOnScroll() {
-    const statsSection = document.querySelector(".stats-section");
-    if (!statsSection || counterStarted) return;
+  document.querySelectorAll(".read-more-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      const card = button.closest(".program-card, .readmore-card");
+      const extraContent = card?.querySelector(".program-extra, .readmore-extra");
+      if (!extraContent) return;
 
-    const sectionTop = statsSection.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
+      card.classList.toggle("is-open", !isExpanded);
+      button.setAttribute("aria-expanded", String(!isExpanded));
+      button.textContent = isExpanded ? "View details" : "Show less";
+    });
+  });
 
-    if (sectionTop < windowHeight - 100) {
-      runCounters();
-      counterStarted = true;
+  const setPathwayState = (card, isOpen) => {
+    if (!card) return;
+    card.classList.toggle("is-open", isOpen);
+    card.querySelectorAll(".pathway-toggle").forEach((toggle) => {
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      if (toggle.dataset.toggleLabel) {
+        toggle.textContent = isOpen ? "Show Less" : toggle.dataset.toggleLabel;
+      }
+    });
+  };
+
+  document.querySelectorAll(".pathway-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      const card = button.closest(".pathway-journey-card");
+      if (!card) return;
+
+      setPathwayState(card, !card.classList.contains("is-open"));
+    });
+  });
+
+  const openHashedPathway = () => {
+    const hash = window.location.hash;
+    const target = hash ? document.querySelector(`${hash}.pathway-journey-card`) : null;
+    if (!target) return;
+
+    const navEntry = performance.getEntriesByType("navigation")[0];
+    if (navEntry?.type === "reload") {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+      return;
     }
-  }
 
-  startCountersOnScroll();
-  window.addEventListener("scroll", startCountersOnScroll);
+    setPathwayState(target, true);
+    setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+  };
 
-  /* =========================
-     CONTACT FORM -> WHATSAPP
-  ========================= */
-  const form = document.querySelector(".contact-form");
-  const messageBox = document.getElementById("form-message");
+  openHashedPathway();
 
-  function showMessage(text, type) {
-    if (!messageBox) return;
-
-    messageBox.textContent = text;
-    messageBox.className = "form-message " + type;
-  }
-
-  if (form) {
-    const submitBtn = form.querySelector(".submit-btn");
-    const btnText = submitBtn ? submitBtn.querySelector("span") : null;
-    const apiEndpoint = form.dataset.apiEndpoint?.trim() || "";
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const name = form.querySelector('input[name="Full Name"]')?.value.trim() || "";
-      const email = form.querySelector('input[name="Email"]')?.value.trim() || "";
-      const phone = form.querySelector('input[name="Phone"]')?.value.trim() || "";
-      const inquiry = form.querySelector('select[name="Inquiry Type"]')?.value.trim() || "";
-      const message = form.querySelector('textarea[name="Message"]')?.value.trim() || "";
-
-      if (!name || !email || !phone || !inquiry || !message) {
-        showMessage("Please fill in all required fields.", "error");
-        return;
-      }
-
-      if (submitBtn) submitBtn.disabled = true;
-      if (btnText) btnText.textContent = apiEndpoint ? "Sending..." : "Opening WhatsApp...";
-
-      const payload = {
-        name,
-        organization: form.querySelector('input[name="Organization"]')?.value.trim() || "",
-        email,
-        phone,
-        inquiry,
-        message
-      };
-
-      const openWhatsAppFallback = () => {
-        showMessage("Opening WhatsApp so you can send your message directly.", "loading");
-
-        const whatsappMessage = encodeURIComponent(
-          `Hello RLH,
-Name: ${payload.name}
-Organization: ${payload.organization || "N/A"}
-Email: ${payload.email}
-Phone: ${payload.phone}
-Inquiry: ${payload.inquiry}
-Message: ${payload.message}`
-        );
-
-        window.open(`https://wa.me/256767666693?text=${whatsappMessage}`, "_blank");
-        showMessage("WhatsApp opened with your pre-filled message.", "success");
-
-        if (submitBtn) submitBtn.disabled = false;
-        if (btnText) btnText.textContent = "Send Inquiry";
-      };
-
-      if (!apiEndpoint) {
-        openWhatsAppFallback();
-        return;
-      }
-
-      fetch(apiEndpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Request failed");
-          }
-
-          form.reset();
-          showMessage("Your inquiry was sent successfully. We'll get back to you soon.", "success");
-        })
-        .catch(() => {
-          openWhatsAppFallback();
-        })
-        .finally(() => {
-          if (submitBtn) submitBtn.disabled = false;
-          if (btnText) btnText.textContent = "Send Inquiry";
-        });
-    });
-  }
-
-  /* =========================
-     KITS SEARCH FILTER
-  ========================= */
-  const kitsSearchInput = document.getElementById("kits-search");
-  const kitsCards = document.querySelectorAll(".kits-grid .sales-card[data-search]");
-  const inventoryItems = document.querySelectorAll(".inventory-item[data-search]");
-  const kitsStatus = document.getElementById("kits-search-status");
-  const kitsEmptyState = document.getElementById("kits-empty-state");
-  const inventoryResult = document.getElementById("inventory-result");
-  const inventoryResultImage = document.getElementById("inventory-result-image");
-  const inventoryResultName = document.getElementById("inventory-result-name");
-  const inventoryResultWas = document.getElementById("inventory-result-was");
-  const inventoryResultNow = document.getElementById("inventory-result-now");
-  const inventoryResultAdd = document.getElementById("inventory-result-add");
-  const inventoryResultNote = document.getElementById("inventory-result-note");
-  const cartItemsContainer = document.getElementById("cart-items");
-  const cartTotal = document.getElementById("cart-total");
-  const cartCustomerName = document.getElementById("cart-customer-name");
-  const cartCustomerContact = document.getElementById("cart-customer-contact");
-  const cartSubmit = document.getElementById("cart-submit");
   const programSelectors = document.querySelectorAll(".program-selector");
   const programDetailName = document.getElementById("program-detail-name");
   const programDetailTag = document.getElementById("program-detail-tag");
   const programDetailDescription = document.getElementById("program-detail-description");
   const programDetailPoints = document.getElementById("program-detail-points");
   const programDetailLink = document.getElementById("program-detail-link");
-  const readMoreToggles = document.querySelectorAll(".read-more-toggle");
-  let currentSearchResult = null;
+
+  if (programSelectors.length && programDetailName && programDetailTag && programDetailDescription && programDetailPoints && programDetailLink) {
+    const renderProgramDetail = (button) => {
+      programSelectors.forEach((item) => item.classList.remove("is-active"));
+      button.classList.add("is-active");
+      programDetailName.textContent = button.dataset.programName || "";
+      programDetailTag.textContent = button.dataset.programTag || "";
+      programDetailDescription.textContent = button.dataset.programDescription || "";
+      programDetailLink.href = button.dataset.programLink || "contact.html";
+      programDetailLink.textContent = button.dataset.programLinkLabel || "Enroll Now";
+      programDetailPoints.innerHTML = (button.dataset.programPoints || "")
+        .split("|")
+        .filter(Boolean)
+        .map((point) => `<li>${point}</li>`)
+        .join("");
+    };
+
+    programSelectors.forEach((button) => {
+      button.addEventListener("click", () => renderProgramDetail(button));
+    });
+  }
+
+  const contactForm = document.querySelector(".contact-form");
+  const messageBox = document.getElementById("form-message");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const values = Object.fromEntries(formData.entries());
+      const requiredFields = ["Full Name", "Email", "Phone", "Inquiry Type", "Message"];
+      const missingField = requiredFields.find((field) => !String(values[field] || "").trim());
+
+      if (missingField) {
+        if (messageBox) {
+          messageBox.textContent = "Please complete all required fields.";
+          messageBox.className = "form-message error";
+        }
+        return;
+      }
+
+      const whatsappMessage = encodeURIComponent(
+        `Hello RLH,\nName: ${values["Full Name"]}\nOrganization: ${values.Organization || "N/A"}\nEmail: ${values.Email}\nPhone: ${values.Phone}\nInquiry: ${values["Inquiry Type"]}\nMessage: ${values.Message}`
+      );
+
+      if (messageBox) {
+        messageBox.textContent = "Opening WhatsApp with your inquiry.";
+        messageBox.className = "form-message success";
+      }
+
+      window.open(`https://wa.me/256767666693?text=${whatsappMessage}`, "_blank");
+    });
+  }
+
+  const kitsSearchInput = document.getElementById("kits-search");
+  const kitsCards = document.querySelectorAll(".kits-grid .sales-card[data-search]");
+  const inventoryItems = document.querySelectorAll(".inventory-item[data-search]");
+  const inventoryPreviewImage = document.getElementById("inventory-preview-image");
+  const inventoryPreviewName = document.getElementById("inventory-preview-name");
+  const inventoryPreviewDescription = document.getElementById("inventory-preview-description");
+  const inventoryPreviewPrice = document.getElementById("inventory-preview-price");
+  const inventoryAddButton = document.getElementById("inventory-add-btn");
+  const kitsStatus = document.getElementById("kits-search-status");
+  const kitsEmptyState = document.getElementById("kits-empty-state");
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+  const cartCustomerName = document.getElementById("cart-customer-name");
+  const cartCustomerContact = document.getElementById("cart-customer-contact");
+  const cartSubmit = document.getElementById("cart-submit");
+  const cartFeedback = document.getElementById("cart-feedback");
   const cart = [];
-  const CART_STORAGE_KEY = "rlh_cart";
-  const CART_CUSTOMER_STORAGE_KEY = "rlh_cart_customer";
-  const CART_ITEM_MIGRATIONS = {
-    "Starter Robotics Kit": {
-      name: "RLH Explorer Kit",
-      priceNow: 190000,
-      priceWas: "UGX 250,000",
-      image: "images/RLH-explorer-kit.jpg"
-    },
-    "Arduino Learning Kit": {
-      name: "RLH Innovator Kit",
-      priceNow: 320000,
-      priceWas: "UGX 380,000",
-      image: "images/RLH-Innovator-Kit.jpg"
-    },
-    "School Lab Bundle": {
-      name: "RLH Pro Kit",
-      priceNow: 570000,
-      priceWas: "UGX 650,000",
-      image: "images/RLH-pro-kit.jpg"
-    }
-  };
 
   const formatCurrency = (value) => `UGX ${Number(value || 0).toLocaleString()}`;
+  const extractItemData = (element) => ({
+    name: element.dataset.name || element.querySelector("h3, .inventory-name")?.textContent || "RLH Kit",
+    priceNow: Number(element.dataset.priceNumber || 0),
+    image: element.dataset.image || element.querySelector("img")?.getAttribute("src") || "",
+    description: element.dataset.description || element.querySelector("p, .inventory-note")?.textContent || ""
+  });
 
-  const findCartItem = (name) => cart.find((item) => item.name === name);
+  let selectedInventoryItem = inventoryItems.length ? extractItemData(inventoryItems[0]) : null;
 
-  const saveCartState = () => {
-    try {
-      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
-      localStorage.setItem(
-        CART_CUSTOMER_STORAGE_KEY,
-        JSON.stringify({
-          name: cartCustomerName?.value.trim() || "",
-          contact: cartCustomerContact?.value.trim() || ""
-        })
-      );
-    } catch (error) {
-      console.warn("Unable to save cart state.", error);
+  const renderInventoryPreview = (item) => {
+    if (!item || !inventoryPreviewName || !inventoryPreviewPrice) return;
+
+    selectedInventoryItem = item;
+    if (inventoryPreviewImage && item.image) {
+      inventoryPreviewImage.src = item.image;
+      inventoryPreviewImage.alt = item.name;
     }
-  };
-
-  const clearCartState = () => {
-    try {
-      localStorage.removeItem(CART_STORAGE_KEY);
-      localStorage.removeItem(CART_CUSTOMER_STORAGE_KEY);
-    } catch (error) {
-      console.warn("Unable to clear cart state.", error);
-    }
-  };
-
-  const loadCartState = () => {
-    try {
-      const storedCart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "[]");
-      const storedCustomer = JSON.parse(localStorage.getItem(CART_CUSTOMER_STORAGE_KEY) || "{}");
-
-      if (Array.isArray(storedCart)) {
-        storedCart.forEach((item) => {
-          if (item?.name && Number(item?.priceNow) >= 0 && Number(item?.quantity) > 0) {
-            const migratedItem = CART_ITEM_MIGRATIONS[item.name] || {};
-            const cartItem = {
-              name: migratedItem.name || item.name,
-              priceNow: Number(migratedItem.priceNow || item.priceNow),
-              priceWas: migratedItem.priceWas || item.priceWas || "",
-              image: migratedItem.image || item.image || "",
-              quantity: Number(item.quantity)
-            };
-            const existingItem = findCartItem(cartItem.name);
-
-            if (existingItem) {
-              existingItem.quantity += cartItem.quantity;
-            } else {
-              cart.push(cartItem);
-            }
-          }
-        });
-      }
-
-      if (cartCustomerName && typeof storedCustomer.name === "string") {
-        cartCustomerName.value = storedCustomer.name;
-      }
-
-      if (cartCustomerContact && typeof storedCustomer.contact === "string") {
-        cartCustomerContact.value = storedCustomer.contact;
-      }
-    } catch (error) {
-      console.warn("Unable to load saved cart state.", error);
-    }
+    inventoryPreviewName.textContent = item.name;
+    if (inventoryPreviewDescription) inventoryPreviewDescription.textContent = item.description;
+    inventoryPreviewPrice.textContent = formatCurrency(item.priceNow);
   };
 
   const renderCart = () => {
@@ -369,7 +235,6 @@ Message: ${payload.message}`
     if (!cart.length) {
       cartItemsContainer.innerHTML = '<p class="cart-empty">Your cart is empty. Add a kit or material to begin.</p>';
       cartTotal.textContent = "UGX 0";
-      saveCartState();
       return;
     }
 
@@ -381,137 +246,84 @@ Message: ${payload.message}`
         </div>
         <div class="cart-item-controls">
           <button type="button" class="qty-btn" data-action="decrease">-</button>
-          <span>${item.quantity}</span>
+          <strong>${item.quantity}</strong>
           <button type="button" class="qty-btn" data-action="increase">+</button>
         </div>
         <button type="button" class="remove-btn" data-action="remove">Remove</button>
       </div>
     `).join("");
 
-    const total = cart.reduce((sum, item) => sum + (item.priceNow * item.quantity), 0);
+    const total = cart.reduce((sum, item) => sum + item.priceNow * item.quantity, 0);
     cartTotal.textContent = formatCurrency(total);
-    saveCartState();
   };
 
   const addToCart = (item) => {
-    if (!item || !item.name) return;
-
-    const existingItem = findCartItem(item.name);
-
+    const existingItem = cart.find((cartItem) => cartItem.name === item.name);
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
-      cart.push({
-        name: item.name,
-        priceNow: Number(item.priceNow),
-        priceWas: item.priceWas,
-        image: item.image,
-        quantity: 1
-      });
+      cart.push({ ...item, quantity: 1 });
     }
-
     renderCart();
   };
 
-  const extractItemData = (element) => ({
-    name: element.dataset.name || element.querySelector("h3, .inventory-name")?.textContent || "Available Item",
-    image: element.dataset.image || element.querySelector("img")?.getAttribute("src") || "",
-    priceWas: element.dataset.priceWas || "",
-    priceNow: Number(element.dataset.priceNumber || 0)
+  document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const item = extractItemData(button.closest("[data-name]"));
+      addToCart(item);
+      button.classList.add("is-added");
+      button.textContent = "Added to Cart";
+      if (cartFeedback) cartFeedback.textContent = `${item.name} was successfully added to your cart.`;
+      setTimeout(() => {
+        button.classList.remove("is-added");
+        button.textContent = "Add to Cart";
+      }, 1500);
+    });
   });
 
-  if (kitsSearchInput && (kitsCards.length || inventoryItems.length)) {
-    const runInventorySearch = () => {
-      const term = kitsSearchInput.value.trim().toLowerCase();
-      let visibleCount = 0;
-      let firstMatch = null;
+  inventoryItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const cartItem = extractItemData(item);
+      inventoryItems.forEach((entry) => entry.classList.remove("is-active"));
+      item.classList.add("is-active");
+      renderInventoryPreview(cartItem);
+    });
+  });
 
-      kitsCards.forEach((card) => {
-        const searchText = (card.getAttribute("data-search") || "").toLowerCase();
-        const isMatch = !term || searchText.includes(term);
+  if (inventoryItems.length) {
+    inventoryItems[0].classList.add("is-active");
+    renderInventoryPreview(selectedInventoryItem);
+  }
 
-        card.hidden = !isMatch;
-
-        if (isMatch) {
-          visibleCount += 1;
-
-          if (!firstMatch) {
-            firstMatch = extractItemData(card);
-          }
-        }
-      });
-
-      inventoryItems.forEach((item) => {
-        const searchText = (item.getAttribute("data-search") || "").toLowerCase();
-        const isMatch = !term || searchText.includes(term);
-
-        item.hidden = !isMatch;
-
-        if (isMatch) {
-          visibleCount += 1;
-
-          if (!firstMatch) {
-            firstMatch = extractItemData(item);
-          }
-        }
-      });
-
-      if (kitsEmptyState) {
-        kitsEmptyState.hidden = visibleCount !== 0;
-      }
-
-      if (inventoryResult && inventoryResultImage && inventoryResultName && inventoryResultWas && inventoryResultNow) {
-        if (term && firstMatch) {
-          currentSearchResult = firstMatch;
-          inventoryResult.hidden = false;
-          inventoryResultImage.src = firstMatch.image;
-          inventoryResultImage.alt = firstMatch.name;
-          inventoryResultName.textContent = firstMatch.name;
-          inventoryResultWas.textContent = firstMatch.priceWas;
-          inventoryResultNow.textContent = formatCurrency(firstMatch.priceNow);
-          if (inventoryResultNote) {
-            inventoryResultNote.textContent = "Ready to add this item to your cart.";
-          }
-        } else {
-          currentSearchResult = null;
-          inventoryResult.hidden = true;
-        }
-      }
-
-      if (kitsStatus) {
-        kitsStatus.textContent = term
-          ? `Found ${visibleCount} item${visibleCount === 1 ? "" : "s"} for "${kitsSearchInput.value.trim()}".`
-          : "Showing all available kits and materials.";
-      }
-    };
-
-    kitsSearchInput.addEventListener("input", runInventorySearch);
-
-    inventoryItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        const itemName = item.querySelector(".inventory-name")?.textContent || "";
-        kitsSearchInput.value = itemName;
-        runInventorySearch();
-      });
+  if (inventoryAddButton) {
+    inventoryAddButton.addEventListener("click", () => {
+      if (!selectedInventoryItem) return;
+      addToCart(selectedInventoryItem);
+      inventoryAddButton.classList.add("is-added");
+      if (cartFeedback) cartFeedback.textContent = `${selectedInventoryItem.name} was successfully added to your cart.`;
+      setTimeout(() => inventoryAddButton.classList.remove("is-added"), 1200);
     });
   }
 
-  kitsCards.forEach((card) => {
-    const addButton = card.querySelector(".add-to-cart-btn");
-    if (!addButton) return;
+  if (kitsSearchInput) {
+    kitsSearchInput.addEventListener("input", () => {
+      const term = kitsSearchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
 
-    addButton.addEventListener("click", () => {
-      addToCart(extractItemData(card));
-    });
-  });
+      [...kitsCards, ...inventoryItems].forEach((item) => {
+        const isMatch = !term || (item.dataset.search || "").toLowerCase().includes(term);
+        item.hidden = !isMatch;
+        if (isMatch) visibleCount += 1;
+      });
 
-  if (inventoryResultAdd) {
-    inventoryResultAdd.addEventListener("click", () => {
-      if (!currentSearchResult) return;
-      addToCart(currentSearchResult);
+      if (kitsStatus) {
+        kitsStatus.textContent = term
+          ? `Found ${visibleCount} matching item${visibleCount === 1 ? "" : "s"}.`
+          : "Showing all available kits and materials.";
+      }
 
-      if (inventoryResultNote) {
-        inventoryResultNote.textContent = `${currentSearchResult.name} added to cart.`;
+      if (kitsEmptyState) {
+        kitsEmptyState.hidden = visibleCount > 0;
       }
     });
   }
@@ -520,108 +332,45 @@ Message: ${payload.message}`
     cartItemsContainer.addEventListener("click", (event) => {
       const target = event.target;
       const cartItem = target.closest(".cart-item");
-      if (!cartItem) return;
+      const action = target.dataset.action;
+      if (!cartItem || !action) return;
 
-      const itemName = cartItem.getAttribute("data-cart-name");
-      const selectedItem = findCartItem(itemName);
-      if (!selectedItem) return;
+      const item = cart.find((cartEntry) => cartEntry.name === cartItem.dataset.cartName);
+      if (!item) return;
 
-      const action = target.getAttribute("data-action");
-
-      if (action === "increase") {
-        selectedItem.quantity += 1;
-      } else if (action === "decrease") {
-        selectedItem.quantity = Math.max(1, selectedItem.quantity - 1);
-      } else if (action === "remove") {
-        const itemIndex = cart.findIndex((item) => item.name === itemName);
-        if (itemIndex >= 0) {
-          cart.splice(itemIndex, 1);
-        }
-      }
-
+      if (action === "increase") item.quantity += 1;
+      if (action === "decrease") item.quantity = Math.max(1, item.quantity - 1);
+      if (action === "remove") cart.splice(cart.indexOf(item), 1);
       renderCart();
     });
   }
 
   if (cartSubmit) {
     cartSubmit.addEventListener("click", () => {
-      const customerName = cartCustomerName?.value.trim() || "";
-      const customerContact = cartCustomerContact?.value.trim() || "";
+      const name = cartCustomerName?.value.trim() || "";
+      const contact = cartCustomerContact?.value.trim() || "";
 
       if (!cart.length) {
         alert("Please add at least one item to your cart.");
         return;
       }
 
-      if (!customerName || !customerContact) {
-        alert("Please enter your name and contact before submitting your order.");
+      if (!name || !contact) {
+        alert("Please enter your name and contact before submitting.");
         return;
       }
 
-      const orderLines = cart.map((item, index) =>
+      const lines = cart.map((item, index) =>
         `${index + 1}. ${item.name} - ${formatCurrency(item.priceNow)} x ${item.quantity} = ${formatCurrency(item.priceNow * item.quantity)}`
       ).join("\n");
+      const total = cart.reduce((sum, item) => sum + item.priceNow * item.quantity, 0);
+      const message = encodeURIComponent(`Hello RLH,\nI would like to place this order.\n\nName: ${name}\nContact: ${contact}\n\n${lines}\n\nTotal: ${formatCurrency(total)}`);
 
-      const total = cart.reduce((sum, item) => sum + (item.priceNow * item.quantity), 0);
-      const orderMessage = encodeURIComponent(
-        `Hello RLH,\nI would like to place this order.\n\nName: ${customerName}\nContact: ${customerContact}\n\nCart:\n${orderLines}\n\nTotal: ${formatCurrency(total)}`
-      );
-
-      window.open(`https://wa.me/256767666693?text=${orderMessage}`, "_blank");
+      window.open(`https://wa.me/256767666693?text=${message}`, "_blank");
       cart.length = 0;
-      if (cartCustomerName) cartCustomerName.value = "";
-      if (cartCustomerContact) cartCustomerContact.value = "";
-      clearCartState();
       renderCart();
     });
   }
 
-  if (cartCustomerName) {
-    cartCustomerName.addEventListener("input", saveCartState);
-  }
-
-  if (cartCustomerContact) {
-    cartCustomerContact.addEventListener("input", saveCartState);
-  }
-
-  if (programSelectors.length && programDetailName && programDetailTag && programDetailDescription && programDetailPoints && programDetailLink) {
-    const renderProgramDetail = (button) => {
-      programSelectors.forEach((item) => item.classList.remove("is-active"));
-      button.classList.add("is-active");
-
-      programDetailName.textContent = button.dataset.programName || "";
-      programDetailTag.textContent = button.dataset.programTag || "";
-      programDetailDescription.textContent = button.dataset.programDescription || "";
-      programDetailLink.href = button.dataset.programLink || "contact.html";
-      programDetailLink.textContent = button.dataset.programLinkLabel || "Learn More";
-
-      const points = (button.dataset.programPoints || "")
-        .split("|")
-        .filter(Boolean)
-        .map((point) => `<li>${point}</li>`)
-        .join("");
-
-      programDetailPoints.innerHTML = points;
-    };
-
-    programSelectors.forEach((button) => {
-      button.addEventListener("click", () => renderProgramDetail(button));
-    });
-  }
-
-  readMoreToggles.forEach((button) => {
-    button.addEventListener("click", () => {
-      const card = button.closest(".program-card");
-      const extraContent = card?.querySelector(".program-extra");
-      if (!extraContent) return;
-
-      const isExpanded = button.getAttribute("aria-expanded") === "true";
-      extraContent.hidden = isExpanded;
-      button.setAttribute("aria-expanded", String(!isExpanded));
-      button.textContent = isExpanded ? "Readmore" : "Show Less";
-    });
-  });
-
-  loadCartState();
   renderCart();
 });

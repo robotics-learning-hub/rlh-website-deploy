@@ -3,307 +3,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Programs | Robotics Learning Hub</title>
+  <title>Future Skills Academy | Robotics Learning Hub (RLH)</title>
   <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <img src="images/logo.jpg" alt="RLH Logo" class="logo" width="60" height="60" />
-      <div class="brand-text">
-        <h1>ROBOTICS LEARNING HUB(RLH)</h1>
-        <span>+256 767 666 693 | roboticslh@gmail.com</span>
-      </div>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo-container"><img src="images/logo.jpg" alt="RLH Logo" class="logo" /><span class="brand-text"><strong>Robotics Learning Hub (RLH)</strong><span>Future Skills Academy</span></span></a>
+      <nav class="navbar" id="navbar" aria-label="Primary navigation">
+        <a href="index.html">Home</a><a href="school-programs.html">School Programs</a><a href="programs.html" class="active-link">Future Skills Academy</a><a href="kits.html">Kits & Materials</a><a href="gallery.html">Gallery</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions"><a href="contact.html" class="btn primary-btn nav-enroll-btn">Enroll Now</a><button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button></div>
     </div>
-
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <nav id="navbar">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="programs.html" class="active-link">Programs</a>
-      <a href="kits.html">Kits & Materials</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
 
-  <section class="page-hero programs-hero">
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-      <h2>Our Programs</h2>
-      <p>Explore structured STEM learning programs and RLH innovation kits designed to equip schools, learners, and educators with practical robotics, electronics, and innovation skills. Whether through guided training or hands-on kits, our pathways are built to deliver real-world experience, problem-solving ability, and future-ready competence. Every learner is encouraged to engage in at least one program or kit pathway to fully benefit from our innovation ecosystem.</p>
-    </div>
-  </section>
-
-  <section class="programs-intro-section reveal">
-    <div class="intro-box">
-      <h2>Programs Designed for Real-World Learning</h2>
-      <p>
-      At Robotics Learning Hub (RLH), we offer structured and flexible learning pathways that combine theory with hands-on practice through guided programs and RLH innovation kits. Our solutions are designed for schools, parents, and organizations seeking to equip learners with practical skills in robotics, electronics, coding, and innovation. Every pathway is built to deliver real-world experience, problem-solving ability, and future-ready competence through active learning and building.
-      </p>
-    </div>
-  </section>
-
-  <section class="programs-trust-section reveal">
-  <div class="trust-strip">
-    
-    <div class="trust-pill">
-      <strong>Practical Learning</strong>
-      <span>Every program is built around guided, hands-on projects that develop real-world robotics and innovation skills.</span>
-    </div>
-
-    <div class="trust-pill">
-      <strong>For Schools, Families & Individuals</strong>
-      <span>Flexible learning options through school partnerships, home-based learning, weekend programs, and online support.</span>
-    </div>
-
-    <div class="trust-pill">
-      <strong>Complete Learning Ecosystem</strong>
-      <span>Programs are supported with RLH Innovation Kits and project kits to ensure continuous hands-on practice and skill development.</span>
-    </div>
-
-  </div>
-</section>
-
-  <section class="programs-main-section reveal">
-  <div class="programs-grid premium-programs-grid">
-
-    <div class="program-card premium-card">
-      <div class="sales-badges">
-        <span class="sales-badge">School Partnership</span>
-        <span class="sales-badge sales-badge-accent">STEM Integration</span>
+  <main>
+    <section class="page-hero academy-hero">
+      <div class="page-hero-content">
+        <p class="eyebrow">Future Skills Academy</p>
+        <h1>Explore Future Skills Learning Pathways</h1>
+        <p>Structured project-based learning for students aged 6-18+ across AI, coding, robotics, IoT, web development, electronics, FreeCAD, and 3D innovation.</p>
+        <div class="button-row"><a href="#learning-pathways" class="btn primary-btn">View Pathways</a><a href="contact.html" class="btn ghost-btn">Enroll Now</a></div>
       </div>
-      <h3>School Program</h3>
-      <p class="program-tag">For Schools & Institutions</p>
-      <p>
-        We partner with schools to deliver structured robotics and STEM learning, supported by RLH Innovation Kits and project-based training that enhances classroom learning.
-      </p>
-      <div class="program-extra" hidden>
-        <ul class="program-list">
-          <li>Robotics, AI, coding, and electronics integration</li>
-          <li>STEM clubs, exhibitions, and innovation challenges</li>
-          <li>Curriculum-aligned practical learning support</li>
-          <li>Teacher and learner capacity building</li>
-        </ul>
-      </div>
-      <div class="program-card-actions">
-        <button type="button" class="text-link read-more-toggle" aria-expanded="false">Readmore</button>
-        <a href="contact.html" class="program-action-link">Request a Demo</a>
-      </div>
-    </div>
-    <div class="program-card premium-card">
-      <div class="sales-badges">
-        <span class="sales-badge">Core Program</span>
-        <span class="sales-badge sales-badge-accent">Innovation Pathway</span>
-      </div>
-      <h3>Arduino Mastery Program</h3>
-      <p class="program-tag">For Emerging Makers & Innovators</p>
-      <p>
-        A hands-on innovation program designed to take learners from basics to advanced Arduino-based system building, including coding, sensors, and real-world prototyping.
-      </p>
-      <div class="program-extra" hidden>
-        <ul class="program-list">
-          <li>Arduino setup, wiring, and safe electronics practice</li>
-          <li>Sensor integration and real-time system control</li>
-          <li>Project-based coding and problem-solving</li>
-          <li>Capstone innovation projects for mastery</li>
-        </ul>
-      </div>
-      <div class="program-card-actions">
-        <button type="button" class="text-link read-more-toggle" aria-expanded="false">Readmore</button>
-        <a href="https://forms.gle/ZfcDmSmQZwBRSXFB8" class="program-action-link" target="_blank" rel="noopener noreferrer">Register</a>
-      </div>
-    </div>
+    </section>
 
-    <div class="program-card premium-card">
-      <div class="sales-badges">
-        <span class="sales-badge">Weekend Learning</span>
-        <span class="sales-badge sales-badge-accent">Hands-On Experience</span>
+    <section class="reveal" id="learning-pathways">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive Learning Pathways</p>
+          <h2>Your child starts here and grows step-by-step into advanced future skills.</h2>
+        </div>
+        <div class="pathway-journey-grid">
+          <article class="pathway-journey-card" id="pathway-ai">
+            <div class="pathway-summary"><span class="pathway-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></span><div><h3>AI & Coding Pathway</h3><p>Ages 6-16. A creative route from visual coding into AI concepts, logic building, and smart systems thinking.</p><div class="meta-row"><span class="badge">Scratch</span><span class="badge">PictoBlox</span><span class="badge alt">AI Concepts</span><span class="badge alt">Logic Building</span></div><div class="pathway-actions"><button type="button" class="btn primary-btn pathway-toggle" data-toggle-label="Explore Pathway" aria-expanded="false">Explore Pathway</button><a href="https://forms.gle/eKadyqJvMPtXDnxD7" class="btn secondary-btn pathway-enroll-link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Enroll Now</a></div></div><div class="pathway-preview"><span>AI Foundations</span><i></i><span>Creative Coding</span><i></i><span>Smart Systems</span></div></div>
+            <div class="pathway-expand"><div class="pathway-expand-inner"><div class="roadmap-line"><div class="roadmap-step"><strong>AI Explorers Foundations</strong><small>Ages 6-8</small></div><div class="roadmap-step"><strong>Creative Coding Studio</strong><small>Ages 9-11</small></div><div class="roadmap-step"><strong>Smart Systems Lab</strong><small>Ages 12-16</small></div></div><div class="journey-program-grid">
+              <article class="journey-program-card"><h4>AI Explorers Foundations</h4><div class="program-facts"><span><strong>Age:</strong> 6-8</span><span><strong>Duration:</strong> 6 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> Scratch, PictoBlox</span><span><strong>Skills:</strong> Logic, sequencing, AI basics</span><span><strong>Capstone:</strong> Interactive AI story</span><span class="next-level"><strong>Next Level:</strong> Creative Coding Studio</span></div><div class="program-card-buttons"><a href="https://forms.gle/eKadyqJvMPtXDnxD7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+              <article class="journey-program-card"><h4>Creative Coding Studio</h4><div class="program-facts"><span><strong>Age:</strong> 9-11</span><span><strong>Duration:</strong> 8 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> Scratch, PictoBlox</span><span><strong>Skills:</strong> Creative coding, debugging</span><span><strong>Capstone:</strong> Game or animation project</span><span class="next-level"><strong>Next Level:</strong> Smart Systems Lab</span></div><div class="program-card-buttons"><a href="https://forms.gle/eKadyqJvMPtXDnxD7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+              <article class="journey-program-card"><h4>Smart Systems Lab</h4><div class="program-facts"><span><strong>Age:</strong> 12-16</span><span><strong>Duration:</strong> 8 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> PictoBlox, AI tools</span><span><strong>Skills:</strong> Smart logic, AI concepts</span><span><strong>Capstone:</strong> Smart assistant concept</span><span class="next-level"><strong>Next Level:</strong> Robotics or Web pathway</span></div><div class="program-card-buttons"><a href="https://forms.gle/eKadyqJvMPtXDnxD7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+            </div></div></div>
+          </article>
+
+          <article class="pathway-journey-card" id="pathway-robotics">
+            <div class="pathway-summary"><span class="pathway-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></span><div><h3>Robotics, IoT & Smart Technology</h3><p>Ages 6-18+. Learners move from robotics basics into Arduino, sensors, automation, IoT, electronics, and intelligent robotics.</p><div class="meta-row"><span class="badge">Arduino</span><span class="badge">Sensors</span><span class="badge">Automation</span><span class="badge alt">IoT</span><span class="badge alt">Electronics</span><span class="badge alt">Smart Systems</span></div><div class="pathway-actions"><button type="button" class="btn primary-btn pathway-toggle" data-toggle-label="Explore Pathway" aria-expanded="false">Explore Pathway</button><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn secondary-btn pathway-enroll-link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Enroll Now</a></div></div><div class="pathway-preview"><span>Junior</span><i></i><span>Foundations</span><i></i><span>Arduino</span><i></i><span>IoT</span><i></i><span>Intelligent</span></div></div>
+            <div class="pathway-expand"><div class="pathway-expand-inner"><div class="roadmap-line"><div class="roadmap-step"><strong>Junior Robotics Creators</strong><small>Ages 6-8</small></div><div class="roadmap-step"><strong>Robotics Foundations</strong><small>Ages 9-12</small></div><div class="roadmap-step"><strong>Arduino Systems Lab</strong><small>Ages 13-14</small></div><div class="roadmap-step"><strong>IoT & Smart Automation Studio</strong><small>Ages 15-16</small></div><div class="roadmap-step"><strong>Intelligent Robotics Studio</strong><small>Ages 17-18+</small></div></div><div class="journey-program-grid">
+              <article class="journey-program-card"><h4>Junior Robotics Creators</h4><div class="program-facts"><span><strong>Age:</strong> 6-8</span><span><strong>Duration:</strong> 8 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> Beginner robotics kits</span><span><strong>Skills:</strong> Circuits, building, teamwork</span><span><strong>Capstone:</strong> Simple moving robot</span><span class="next-level"><strong>Next Level:</strong> Robotics Foundations</span></div><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+              <article class="journey-program-card"><h4>Robotics Foundations</h4><div class="program-facts"><span><strong>Age:</strong> 9-12</span><span><strong>Duration:</strong> 8 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> Motors, sensors, robotics kits</span><span><strong>Skills:</strong> Motion, sensing, control logic</span><span><strong>Capstone:</strong> Sensor robot challenge</span><span class="next-level"><strong>Next Level:</strong> Arduino Systems Lab</span></div><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+              <article class="journey-program-card"><h4>Arduino Systems Lab</h4><div class="program-facts"><span><strong>Age:</strong> 13-14</span><span><strong>Duration:</strong> 8 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> Arduino, sensors, LCDs, relays</span><span><strong>Skills:</strong> Coding, wiring, automation</span><span><strong>Capstone:</strong> Smart automation system</span><span class="next-level"><strong>Next Level:</strong> IoT & Smart Automation Studio</span></div><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+              <article class="journey-program-card"><h4>IoT & Smart Automation Studio</h4><div class="program-facts"><span><strong>Age:</strong> 15-16</span><span><strong>Duration:</strong> 10 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> ESP32, sensors, dashboards</span><span><strong>Skills:</strong> IoT, connected systems</span><span><strong>Capstone:</strong> Smart home or monitoring system</span><span class="next-level"><strong>Next Level:</strong> Intelligent Robotics Studio</span></div><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+              <article class="journey-program-card"><h4>Intelligent Robotics Studio</h4><div class="program-facts"><span><strong>Age:</strong> 17-18+</span><span><strong>Duration:</strong> 10 Weeks</span><span><strong>Mode:</strong> Physical preferred</span><span><strong>Tools:</strong> Arduino/ESP32, sensors, robotics kits</span><span><strong>Skills:</strong> Robotics logic, smart automation</span><span><strong>Capstone:</strong> Intelligent robotics prototype</span><span class="next-level"><strong>Next Level:</strong> Showcase and mentorship</span></div><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+            </div></div></div>
+          </article>
+
+          <article class="pathway-journey-card" id="pathway-web">
+            <div class="pathway-summary"><span class="pathway-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span><div><h3>Web Development & Digital Creation</h3><p>Ages 10-18+. Learners start after stronger typing and computer interaction skills, then build responsive websites and digital portfolios.</p><div class="meta-row"><span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JavaScript</span><span class="badge alt">Responsive Design</span></div><div class="pathway-actions"><button type="button" class="btn primary-btn pathway-toggle" data-toggle-label="Explore Pathway" aria-expanded="false">Explore Pathway</button><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn secondary-btn pathway-enroll-link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Enroll Now</a></div></div><div class="pathway-preview"><span>Design</span><i></i><span>Web Studio</span><i></i><span>Frontend Lab</span></div></div>
+            <div class="pathway-expand"><div class="pathway-expand-inner"><div class="roadmap-line"><div class="roadmap-step"><strong>Creative Digital Design</strong><small>Ages 10-12</small></div><div class="roadmap-step"><strong>Web Creators Studio</strong><small>Ages 13-15</small></div><div class="roadmap-step"><strong>Frontend Development Lab</strong><small>Ages 16-18+</small></div></div><div class="journey-program-grid">
+              <article class="journey-program-card"><h4>Creative Digital Design</h4><div class="program-facts"><span><strong>Age:</strong> 10-12</span><span><strong>Duration:</strong> 6 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> Design tools, browser basics</span><span><strong>Skills:</strong> Layout, digital confidence</span><span><strong>Capstone:</strong> Digital poster or mini page</span><span class="next-level"><strong>Next Level:</strong> Web Creators Studio</span></div><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+              <article class="journey-program-card"><h4>Web Creators Studio</h4><div class="program-facts"><span><strong>Age:</strong> 13-15</span><span><strong>Duration:</strong> 8 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> HTML, CSS, JavaScript</span><span><strong>Skills:</strong> Pages, styling, interaction</span><span><strong>Capstone:</strong> Personal portfolio website</span><span class="next-level"><strong>Next Level:</strong> Frontend Development Lab</span></div><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+              <article class="journey-program-card"><h4>Frontend Development Lab</h4><div class="program-facts"><span><strong>Age:</strong> 16-18+</span><span><strong>Duration:</strong> 10 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> HTML, CSS, JavaScript</span><span><strong>Skills:</strong> Responsive design, UI logic</span><span><strong>Capstone:</strong> Interactive responsive website</span><span class="next-level"><strong>Next Level:</strong> Portfolio development</span></div><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+            </div></div></div>
+          </article>
+
+          <article class="pathway-journey-card" id="pathway-3d">
+            <div class="pathway-summary"><span class="pathway-icon"><i class="fa-solid fa-cube" aria-hidden="true"></i></span><div><h3>3D Design & Innovation</h3><p>Ages 8-18+. Learners explore engineering creativity through FreeCAD, product thinking, and 3D modeling.</p><div class="meta-row"><span class="badge">FreeCAD</span><span class="badge">Product Design</span><span class="badge alt">3D Modeling</span></div><div class="pathway-actions"><button type="button" class="btn primary-btn pathway-toggle" data-toggle-label="Explore Pathway" aria-expanded="false">Explore Pathway</button><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn secondary-btn pathway-enroll-link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Enroll Now</a></div></div><div class="pathway-preview"><span>Engineering</span><i></i><span>3D Design</span><i></i><span>Product Lab</span></div></div>
+            <div class="pathway-expand"><div class="pathway-expand-inner"><div class="roadmap-line"><div class="roadmap-step"><strong>Creative Engineering Studio</strong><small>Ages 8-12</small></div><div class="roadmap-step"><strong>3D Design Foundations</strong><small>Ages 13-15</small></div><div class="roadmap-step"><strong>Product Design Lab</strong><small>Ages 16-18+</small></div></div><div class="journey-program-grid">
+              <article class="journey-program-card"><h4>Creative Engineering Studio</h4><div class="program-facts"><span><strong>Age:</strong> 8-12</span><span><strong>Duration:</strong> 6 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> Sketching, simple models</span><span><strong>Skills:</strong> Design thinking, creativity</span><span><strong>Capstone:</strong> Creative engineering concept</span><span class="next-level"><strong>Next Level:</strong> 3D Design Foundations</span></div><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+              <article class="journey-program-card"><h4>3D Design Foundations</h4><div class="program-facts"><span><strong>Age:</strong> 13-15</span><span><strong>Duration:</strong> 8 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> FreeCAD</span><span><strong>Skills:</strong> 3D modeling, measurement</span><span><strong>Capstone:</strong> 3D modeled object</span><span class="next-level"><strong>Next Level:</strong> Product Design Lab</span></div><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+              <article class="journey-program-card"><h4>Product Design Lab</h4><div class="program-facts"><span><strong>Age:</strong> 16-18+</span><span><strong>Duration:</strong> 8 Weeks</span><span><strong>Mode:</strong> Online | Physical</span><span><strong>Tools:</strong> FreeCAD, design sketches</span><span><strong>Skills:</strong> Product design, prototyping</span><span><strong>Capstone:</strong> Product design portfolio piece</span><span class="next-level"><strong>Next Level:</strong> Innovation showcase</span></div><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="contact.html" class="btn secondary-btn">Learn More</a></div></article>
+            </div></div></div>
+          </article>
+        </div>
       </div>
-      <h3>Weekend Program</h3>
-      <p class="program-tag">For Learners & Families</p>
-      <p>
-        A practical, hands-on learning experience where learners build real robotics and electronics projects in a guided environment beyond the classroom.
-      </p>
-      <div class="program-extra" hidden>
-        <ul class="program-list">
-          <li>Hands-on robotics and electronics projects</li>
-          <li>Introductory coding and control systems</li>
-          <li>Problem-solving and creativity challenges</li>
-          <li>Guided innovation using RLH kits</li>
-        </ul>
+    </section>
+
+    <section class="soft-band reveal">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Program Cards</p>
+          <h2>Choose a focused academy program and build toward a capstone.</h2>
+        </div>
+        <div class="grid grid-3">
+          <article class="program-card"><h3>AI Explorers Foundations</h3><div class="meta-row"><span class="badge">Ages 6-8</span><span class="badge">6 Weeks</span><span class="badge alt">Online | Physical</span></div><p>Tools: Scratch, PictoBlox, visual AI tools.</p><p><strong>Capstone:</strong> Interactive AI story or game.</p><p><strong>Next:</strong> Creative Coding Studio.</p><div class="program-card-buttons"><a href="https://forms.gle/eKadyqJvMPtXDnxD7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="#learning-pathways" class="btn secondary-btn">Learn More</a></div></article>
+          <article class="program-card"><h3>Arduino Systems Lab</h3><div class="meta-row"><span class="badge">Ages 13-14</span><span class="badge">8 Weeks</span><span class="badge alt">Online | Physical</span></div><p>Tools: Arduino, sensors, LCDs, relays.</p><p><strong>Capstone:</strong> Smart automation system.</p><p><strong>Next:</strong> IoT & Smart Automation Studio.</p><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="#learning-pathways" class="btn secondary-btn">Learn More</a></div></article>
+          <article class="program-card"><h3>IoT & Smart Automation Studio</h3><div class="meta-row"><span class="badge">Ages 15-16</span><span class="badge">10 Weeks</span><span class="badge alt">Online | Physical</span></div><p>Tools: ESP32, sensors, wireless modules, dashboards.</p><p><strong>Capstone:</strong> Smart home or monitoring system.</p><p><strong>Next:</strong> Intelligent Robotics Studio.</p><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="#learning-pathways" class="btn secondary-btn">Learn More</a></div></article>
+          <article class="program-card"><h3>Web Creators Studio</h3><div class="meta-row"><span class="badge">Ages 10-12</span><span class="badge">8 Weeks</span><span class="badge alt">Online | Physical</span></div><p>Tools: HTML, CSS, JavaScript.</p><p><strong>Capstone:</strong> Personal portfolio website.</p><p><strong>Next:</strong> Frontend Development Lab.</p><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="#learning-pathways" class="btn secondary-btn">Learn More</a></div></article>
+          <article class="program-card"><h3>Product Design Lab</h3><div class="meta-row"><span class="badge">Ages 16-18+</span><span class="badge">8 Weeks</span><span class="badge alt">Online | Physical</span></div><p>Tools: FreeCAD, design sketches, product modeling.</p><p><strong>Capstone:</strong> 3D modeled product concept.</p><p><strong>Next:</strong> Innovation portfolio project.</p><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="#learning-pathways" class="btn secondary-btn">Learn More</a></div></article>
+          <article class="program-card"><h3>Intelligent Robotics Studio</h3><div class="meta-row"><span class="badge">Ages 17-18+</span><span class="badge">10 Weeks</span><span class="badge alt">Physical preferred</span></div><p>Tools: Arduino/ESP32, sensors, robotics kits, AI concepts.</p><p><strong>Capstone:</strong> Intelligent robotics prototype.</p><p><strong>Next:</strong> Showcase and mentorship.</p><div class="program-card-buttons"><a href="https://forms.gle/YK1wEszNs1b3LD9w7" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Enroll Now</a><a href="#learning-pathways" class="btn secondary-btn">Learn More</a></div></article>
+        </div>
       </div>
-      <div class="program-card-actions">
-        <button type="button" class="text-link read-more-toggle" aria-expanded="false">Readmore</button>
-        <a href="https://forms.gle/c9ugWcNW5hxmuQtL9" class="program-action-link" target="_blank" rel="noopener noreferrer">Register</a>
+    </section>
+
+    <section class="reveal">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Learning Model</p>
+          <h2>Flexible, structured, and practical from week one.</h2>
+          <p class="lead">Online learners attend two sessions per week. Younger learners take 1-1.5 hour sessions, while older learners take 2 hour practical sessions. Physical cohorts run on weekends with Saturday and optional Sunday practical sessions.</p>
+        </div>
+        <div class="grid">
+          <article class="card card-pad"><h3>Online Academy</h3><p>Live guided classes, project assignments, parent updates, and mentor support.</p></article>
+          <article class="card card-pad"><h3>Physical Cohorts</h3><p>Hands-on labs, kit-based building, peer collaboration, and practical demonstrations.</p></article>
+          <article class="card card-pad"><h3>Capstone Showcase</h3><p>Every pathway ends with a project learners can present, improve, and add to a portfolio.</p></article>
+        </div>
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
-  <section class="programs-library-section reveal">
-  <div class="section-heading">
-    <p class="section-eyebrow">More Learning Pathways</p>
-    <h2>Choose a Program That Fits Your Innovation Journey</h2>
-    <p>Explore structured STEM programs, hands-on workshops, and RLH kit-based learning options designed for schools, learners, and communities. Select any option below to view details and register.</p>
-  </div>
-
-  <div class="programs-library-layout">
-    
-    <aside class="inventory-sidebar programs-sidebar">
-      <h3>Available Learning Pathways</h3>
-      <p>Select a program or kit pathway to view details, outcomes, and registration steps.</p>
-
-      <div class="inventory-list">
-
-        <button
-          type="button"
-          class="inventory-item program-selector is-active"
-          data-program-name="Holiday Robotics & AI Program"
-          data-program-tag="Intensive Innovation Experience"
-          data-program-description="A hands-on holiday program where learners dive into robotics, AI, and real project building in an engaging, collaborative environment that strengthens practical STEM skills."
-          data-program-points="Hands-on robotics projects|Team-based innovation|Problem-solving challenges|Accelerated skill development"
-          data-program-link="contact.html"
-          data-program-link-label="Register"
-        >
-          <span class="inventory-name">Holiday Robotics & AI Program</span>
-          <span class="inventory-price">View Details</span>
-        </button>
-
-        <button
-          type="button"
-          class="inventory-item program-selector"
-          data-program-name="Community Workshops & Trainings"
-          data-program-tag="Schools, Organizations & Communities"
-          data-program-description="Practical STEM workshops introducing robotics, AI, and innovation through interactive, hands-on sessions for learners, teachers, and organizations."
-          data-program-points="STEM skill development|Teacher & learner training|Hands-on robotics activities|Community outreach programs"
-          data-program-link="contact.html"
-          data-program-link-label="Register">
-          <span class="inventory-name">Community Workshops & Trainings</span>
-          <span class="inventory-price">View Details</span>
-        </button>
-
-        <button
-          type="button"
-          class="inventory-item program-selector"
-          data-program-name="RLH Robotics Kits & Learning Materials"
-          data-program-tag="Hands-On Learning Ecosystem"
-          data-program-description="Complete RLH kits and learning materials designed to support continuous hands-on practice in robotics, electronics, and innovation projects for schools and individuals."
-          data-program-points="Explorer, Innovator & Pro Kits|Project kits|Pack components kit|Practical innovation support"
-          data-program-link="kits.html"
-          data-program-link-label="Register"
-        >
-          <span class="inventory-name">RLH Kits & Learning Materials</span>
-          <span class="inventory-price">View Details</span>
-        </button>
-
+    <section class="dark-cta reveal">
+      <div class="cta-panel">
+        <div><h2>Ready to choose a pathway?</h2><p>Talk to RLH and we will recommend the best starting point by age, experience, and learning goals.</p></div>
+        <div class="button-row"><a href="contact.html" class="btn primary-btn nav-enroll-btn">Enroll Now</a><a href="kits.html" class="btn ghost-btn">View Kits</a></div>
       </div>
-    </aside>
+    </section>
+  </main>
 
-    <div class="program-detail-card" id="program-detail-card">
-      <p class="section-eyebrow">Program Details</p>
-      <h3 id="program-detail-name">Holiday Robotics & AI Program</h3>
-      <p class="program-tag" id="program-detail-tag">Intensive Innovation Experience</p>
-      <p id="program-detail-description">
-        A hands-on holiday program where learners dive into robotics, AI, and real project building in an engaging, collaborative environment that strengthens practical STEM skills.
-      </p>
-
-      <ul class="program-list" id="program-detail-points">
-        <li>Hands-on robotics projects</li>
-        <li>Team-based innovation</li>
-        <li>Problem-solving challenges</li>
-        <li>Accelerated skill development</li>
-      </ul>
-
-      <a href="contact.html" class="btn primary-btn" id="program-detail-link">Register</a>
-    </div>
-
-  </div>
-</section>
-
-  <section class="why-programs-section reveal">
-    <h2>Why Our Programs Matter</h2>
-    <div class="difference-grid">
-      <div class="difference-card">
-        <h3>Confidence Through Practice</h3>
-        <p>Learners build confidence by designing, building, and presenting real-world projects.</p>
-      </div>
-      <div class="difference-card">
-        <h3>Innovation & Creative Thinking</h3>
-        <p>Our approach encourages experimentation, creativity, and problem-solving in every session.</p>
-      </div>
-      <div class="difference-card">
-        <h3>Future-Ready Skills</h3>
-        <p>We prepare learners with practical technology and engineering skills relevant for the modern world.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="program-outcomes-section reveal">
-    <div class="section-heading">
-      <p class="section-eyebrow">What Learners Gain</p>
-      <h2>Programs designed to build confidence and capability</h2>
-    </div>
-    <div class="difference-grid">
-      <div class="difference-card">
-        <h3>Build Real Projects</h3>
-        <p>Learners create with circuits, sensors, robotics tools, and guided coding challenges.</p>
-      </div>
-      <div class="difference-card">
-        <h3>Strengthen Problem Solving</h3>
-        <p>Every session encourages experimentation, debugging, and practical thinking.</p>
-      </div>
-      <div class="difference-card">
-        <h3>Grow Future-Ready Skills</h3>
-        <p>Students gain confidence in technology, innovation, and structured project work.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section reveal">
-    <h2>Start Your Robotics Journey with RLH</h2>
-    <p>Whether you are a school, parent, or organization, we are ready to support you with practical, impactful robotics and STEM programs.</p>
-    <a href="contact.html" class="btn primary-btn">Get in Touch</a>
-  </section>
-
-  <a href="https://wa.me/256767666693" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">Chat</a>
-
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <h3>Robotics Learning Hub</h3>
-        <p>Robotics & AI training, school programs, and STEM kits that build real-world skills.</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <a href="index.html">Home</a>
-        <a href="programs.html">Programs</a>
-        <a href="kits.html">Kits & Materials</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <a href="https://wa.me/256767666693" target="_blank">WhatsApp: +256 767 666 693</a>
-        <a href="tel:+256767666693">Call: +256 767 666 693</a>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=roboticslh@gmail.com" target="_blank">roboticslh@gmail.com</a>
-      </div>
-      <div>
-        <h4>Follow Us</h4>
-        <a href="https://www.linkedin.com/company/robotics-learning-hub" target="_blank">LinkedIn</a>
-        <a href="https://www.instagram.com/roboticslearninghub?igsh=MTZndnVnenVyejdiOQ==" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@roboticslearningh?_r=1&_t=ZS-95N06qeUDLu" target="_blank">TikTok</a>
-        <a href="https://www.youtube.com/@roboticslearningh" target="_blank">YouTube</a>
-      </div>
-    </div>
-    <p class="footer-bottom">&copy; 2026 Robotics Learning Hub | Kampala, Uganda | Developed by Robotics Learning Hub</p>
-  </footer>
-
+  <a href="https://wa.me/256767666693" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+  <footer class="site-footer"><div class="footer-grid"><div><h3>Robotics Learning Hub (RLH)</h3><p>Future Skills Academy for Young Innovators.</p></div><div><h4>Quick Links</h4><a href="school-programs.html">School Programs</a><a href="programs.html">Future Skills Academy</a><a href="kits.html">Kits & Materials</a><a href="contact.html">Contact</a></div><div><h4>Pathways</h4><a href="programs.html">AI & Coding</a><a href="programs.html">Robotics & IoT</a><a href="programs.html">Web Development</a><a href="programs.html">3D Design</a></div><div><h4>Contact</h4><a href="https://wa.me/256767666693" target="_blank" rel="noopener noreferrer">WhatsApp: +256 767 666 693</a><a href="mailto:roboticslh@gmail.com">roboticslh@gmail.com</a><div class="footer-social"><a href="https://www.linkedin.com/company/robotics-learning-hub" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://www.instagram.com/roboticslearninghub?igsh=MTZndnVnenVyejdiOQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.tiktok.com/@roboticslearningh?_r=1&_t=ZS-95N06qeUDLu" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a><a href="https://www.youtube.com/@roboticslearningh" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div></div></div><p class="footer-bottom">&copy; 2026 Robotics Learning Hub (RLH) | Kampala, Uganda | Built by Robotics Learning Hub (RLH)</p></footer>
   <script src="js/script.js"></script>
 </body>
 </html>
