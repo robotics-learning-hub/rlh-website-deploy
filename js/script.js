@@ -15,14 +15,96 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById("navbar");
 
   if (menuToggle && navbar) {
+    menuToggle.setAttribute("aria-controls", "navbar");
+    const closeMenu = () => {
+      navbar.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open menu");
+    };
     menuToggle.addEventListener("click", () => {
-      navbar.classList.toggle("active");
-      menuToggle.setAttribute("aria-expanded", String(navbar.classList.contains("active")));
+      const isOpen = !navbar.classList.contains("active");
+      navbar.classList.toggle("active", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
     });
 
     navbar.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => navbar.classList.remove("active"));
+      link.addEventListener("click", closeMenu);
     });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+    document.addEventListener("click", (event) => {
+      if (!navbar.contains(event.target) && !menuToggle.contains(event.target)) closeMenu();
+    });
+  }
+
+  const projectCarousel = document.querySelector("[data-project-carousel]");
+  if (projectCarousel) {
+    const projectCards = [...projectCarousel.querySelectorAll(".project-showcase-card")];
+    const previousButton = document.querySelector("[data-project-previous]");
+    const nextButton = document.querySelector("[data-project-next]");
+    const pauseButton = document.querySelector("[data-project-pause]");
+    const projectControls = document.querySelector(".project-carousel-controls");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let userPaused = prefersReducedMotion.matches;
+    let isInteracting = false;
+
+    const updatePauseButton = () => {
+      if (!pauseButton) return;
+      pauseButton.hidden = prefersReducedMotion.matches;
+      pauseButton.setAttribute("aria-pressed", String(userPaused));
+      pauseButton.textContent = userPaused ? "Resume auto-scroll" : "Pause auto-scroll";
+    };
+
+    const cardStep = () => {
+      if (!projectCards[0]) return projectCarousel.clientWidth;
+      const styles = window.getComputedStyle(projectCarousel);
+      const gap = parseFloat(styles.columnGap || styles.gap) || 0;
+      return projectCards[0].getBoundingClientRect().width + gap;
+    };
+
+    const moveProjects = (direction) => {
+      const maxScroll = projectCarousel.scrollWidth - projectCarousel.clientWidth;
+      if (maxScroll <= 0) return;
+      const atEnd = projectCarousel.scrollLeft >= maxScroll - 8;
+      const atStart = projectCarousel.scrollLeft <= 8;
+      if (direction > 0 && atEnd) {
+        projectCarousel.scrollTo({ left: 0, behavior: prefersReducedMotion.matches ? "auto" : "smooth" });
+      } else if (direction < 0 && atStart) {
+        projectCarousel.scrollTo({ left: maxScroll, behavior: prefersReducedMotion.matches ? "auto" : "smooth" });
+      } else {
+        projectCarousel.scrollBy({ left: cardStep() * direction, behavior: prefersReducedMotion.matches ? "auto" : "smooth" });
+      }
+    };
+
+    previousButton?.addEventListener("click", () => moveProjects(-1));
+    nextButton?.addEventListener("click", () => moveProjects(1));
+    pauseButton?.addEventListener("click", () => {
+      userPaused = !userPaused;
+      updatePauseButton();
+    });
+    projectCarousel.addEventListener("pointerenter", () => { isInteracting = true; });
+    projectCarousel.addEventListener("pointerleave", () => { isInteracting = false; });
+    projectCarousel.addEventListener("focusin", () => { isInteracting = true; });
+    projectCarousel.addEventListener("focusout", (event) => {
+      if (!projectCarousel.contains(event.relatedTarget)) isInteracting = false;
+    });
+    projectControls?.addEventListener("pointerenter", () => { isInteracting = true; });
+    projectControls?.addEventListener("pointerleave", () => { isInteracting = false; });
+    projectControls?.addEventListener("focusin", () => { isInteracting = true; });
+    projectControls?.addEventListener("focusout", (event) => {
+      if (!projectControls.contains(event.relatedTarget)) isInteracting = false;
+    });
+    prefersReducedMotion.addEventListener?.("change", (event) => {
+      if (event.matches) userPaused = true;
+      updatePauseButton();
+    });
+
+    updatePauseButton();
+    window.setInterval(() => {
+      if (!userPaused && !isInteracting && !prefersReducedMotion.matches) moveProjects(1);
+    }, 4200);
   }
 
   const revealElements = document.querySelectorAll(".reveal");
@@ -233,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!cartItemsContainer || !cartTotal) return;
 
     if (!cart.length) {
-      cartItemsContainer.innerHTML = '<p class="cart-empty">Your cart is empty. Add a kit or material to begin.</p>';
+      cartItemsContainer.innerHTML = '<p class="cart-empty">Your enquiry list is empty. Add a kit or material to begin.</p>';
       cartTotal.textContent = "UGX 0";
       return;
     }
@@ -272,11 +354,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const item = extractItemData(button.closest("[data-name]"));
       addToCart(item);
       button.classList.add("is-added");
-      button.textContent = "Added to Cart";
-      if (cartFeedback) cartFeedback.textContent = `${item.name} was successfully added to your cart.`;
+      button.textContent = "Added";
+      if (cartFeedback) cartFeedback.textContent = `${item.name} was added to your enquiry list.`;
       setTimeout(() => {
         button.classList.remove("is-added");
-        button.textContent = "Add to Cart";
+        button.textContent = "Add to Enquiry";
       }, 1500);
     });
   });
@@ -300,7 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!selectedInventoryItem) return;
       addToCart(selectedInventoryItem);
       inventoryAddButton.classList.add("is-added");
-      if (cartFeedback) cartFeedback.textContent = `${selectedInventoryItem.name} was successfully added to your cart.`;
+      if (cartFeedback) cartFeedback.textContent = `${selectedInventoryItem.name} was added to your enquiry list.`;
       setTimeout(() => inventoryAddButton.classList.remove("is-added"), 1200);
     });
   }
@@ -319,7 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (kitsStatus) {
         kitsStatus.textContent = term
           ? `Found ${visibleCount} matching item${visibleCount === 1 ? "" : "s"}.`
-          : "Showing all available kits and materials.";
+          : "Showing kits and materials currently listed on this page.";
       }
 
       if (kitsEmptyState) {
@@ -351,7 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const contact = cartCustomerContact?.value.trim() || "";
 
       if (!cart.length) {
-        alert("Please add at least one item to your cart.");
+        alert("Please add at least one item to your enquiry list.");
         return;
       }
 
@@ -364,7 +446,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `${index + 1}. ${item.name} - ${formatCurrency(item.priceNow)} x ${item.quantity} = ${formatCurrency(item.priceNow * item.quantity)}`
       ).join("\n");
       const total = cart.reduce((sum, item) => sum + item.priceNow * item.quantity, 0);
-      const message = encodeURIComponent(`Hello RLH,\nI would like to place this order.\n\nName: ${name}\nContact: ${contact}\n\n${lines}\n\nTotal: ${formatCurrency(total)}`);
+      const message = encodeURIComponent(`Hello RLH,\nI would like to enquire about these items. Please confirm current availability and prices. This is an enquiry, not a confirmed order.\n\nName: ${name}\nContact: ${contact}\n\n${lines}\n\nListed price subtotal (for guidance): ${formatCurrency(total)}`);
 
       window.open(`https://wa.me/256767666693?text=${message}`, "_blank");
       cart.length = 0;

@@ -2,16 +2,17 @@
    RLH Future Skills Academy
 ========================= */
 :root {
-  --navy: #0f172a;
-  --navy-soft: #17213a;
-  --blue: #2563eb;
-  --cyan: #06b6d4;
-  --sky: #e0f2fe;
-  --bg: #f8fafc;
+  --navy: #101c3a;
+  --navy-soft: #101c3a;
+  --blue: #087f78;
+  --cyan: #087f78;
+  --orange: #f4a340;
+  --sky: #eaf7f5;
+  --bg: #f4f6fa;
   --card: #ffffff;
   --text: #1e293b;
-  --muted: #64748b;
-  --line: #e2e8f0;
+  --muted: #4b5568;
+  --line: #dce3eb;
   --shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
   --shadow-lg: 0 28px 70px rgba(15, 23, 42, 0.16);
   --radius: 18px;
@@ -1515,6 +1516,113 @@ main > section:nth-of-type(even):not(.hero):not(.page-hero):not(.dark-cta):not(.
   text-align: center;
 }
 
+/* Parent-first homepage and Home STEM Coaching */
+.home-coaching-feature { background: #fff; }
+.coaching-visual { min-height: 340px; overflow: hidden; border-radius: var(--radius); background: linear-gradient(135deg, #dbeafe, #cffafe); box-shadow: var(--shadow); }
+.coaching-visual img { width: 100%; height: 100%; min-height: 340px; object-fit: cover; }
+.feature-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 20px; margin: 22px 0; padding-left: 20px; color: var(--text); }
+.feature-list li::marker { color: var(--blue); }
+.coaching-hero { background-image: linear-gradient(90deg, rgba(8, 17, 31, .92), rgba(8, 17, 31, .62)), url('../images/Students-building.jpg'); background-position: center; background-size: cover; }
+.coaching-hero .page-hero-content { max-width: 850px; }
+.coaching-hero h1, .coaching-hero p:not(.eyebrow) { color: #fff; }
+.review-note { margin-top: 18px; padding: 14px 16px; border-left: 4px solid var(--cyan); border-radius: 0 10px 10px 0; background: #eff6ff; }
+.coaching-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 22px; }
+.coaching-facts span { padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--text); }
+.coaching-facts strong { display: block; color: var(--muted); font-size: .8rem; }
+.fee-highlight { display: inline-flex; align-items: center; margin-top: 18px; padding: 14px 20px; border-radius: 12px; background: var(--blue); color: #fff; font-size: 1.12rem; box-shadow: 0 10px 24px rgba(37, 99, 235, .22); }
+.fee-highlight strong { color: inherit; }
+.pathway-summary-card { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: 0 10px 26px rgba(15, 23, 42, .05); }
+.pathway-summary-card h3 { margin-bottom: 10px; }
+.pathway-summary-card p { min-height: 78px; margin-bottom: 14px; }
+.centered-actions { justify-content: center; margin-top: 26px; }
+.coaching-project { overflow: hidden; }
+.coaching-project img { width: 100%; height: 300px; object-fit: cover; }
+.faq-list { max-width: 900px; margin: 0 auto; }
+.faq-list details { margin-bottom: 12px; padding: 0 20px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 8px 22px rgba(15, 23, 42, .04); }
+.faq-list summary { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--navy); font-weight: 800; cursor: pointer; list-style: none; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; color: var(--blue); font-size: 1.4rem; }
+.faq-list details[open] summary::after { content: "−"; }
+.faq-list details p { padding: 0 0 18px; }
+.faq-list summary:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+.menu-toggle:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+/* RLH brand palette: navy, teal, soft neutrals, and restrained orange accents. */
+body { background: #fff; color: #1e293b; }
+h1, h2, h3 { color: #101c3a; }
+.eyebrow, .section-eyebrow { background: #eaf7f5; border-color: rgba(244, 163, 64, .55); color: #075e59; }
+.navbar a { color: #26334c; }
+.navbar a:hover, .navbar a.active-link { background: #eaf7f5; color: #087f78; }
+.btn.primary-btn { background: #087f78; color: #fff; box-shadow: 0 12px 26px rgba(8, 127, 120, .22); }
+.btn.primary-btn:hover { background: #066b66; box-shadow: 0 16px 30px rgba(8, 127, 120, .26); }
+.text-link, .navbar a.active-link { color: #087f78; }
+.hero { background: #101c3a; }
+.hero-overlay { background: linear-gradient(90deg, rgba(16, 28, 58, .96), rgba(16, 28, 58, .78), rgba(16, 28, 58, .42)), linear-gradient(0deg, rgba(16, 28, 58, .42), rgba(16, 28, 58, .12)); }
+.page-hero { background-color: #101c3a; }
+.page-hero::before { background: linear-gradient(90deg, rgba(16, 28, 58, .94), rgba(16, 28, 58, .76), rgba(16, 28, 58, .38)); }
+.soft-band, .school-showcase, .stats-section { background: #eaf7f5; }
+main > section:nth-of-type(even):not(.hero):not(.page-hero):not(.dark-cta):not(.soft-band) { background: #f4f6fa; }
+.dark-cta, .site-footer { background: #101c3a; }
+.cta-panel { background: linear-gradient(135deg, rgba(8, 127, 120, .2), rgba(244, 163, 64, .08)), #101c3a; }
+.icon { background: #eaf7f5; color: #087f78; }
+.pathway-summary-card, .coaching-visual { background-color: #eaf7f5; }
+.fee-highlight { background: #087f78; color: #fff; }
+.site-footer a:hover { color: #f4a340; }
+.footer-social a:hover { background: #087f78; color: #fff; }
+.badge { border-color: rgba(8, 127, 120, .22); background: #eaf7f5; color: #075e59; }
+.badge.alt { border-color: rgba(244, 163, 64, .42); background: #fff6e9; color: #774b13; }
+.testimonial-card { border-top: 3px solid #f4a340; }
+.faq-list details[open] { border-color: #087f78; }
+.whatsapp-float { background: #087f78; }
+.form-message.success, .cart-feedback { color: #087f78; }
+.add-to-cart-btn.is-added, .inventory-add-btn.is-added { background: #087f78; }
+.add-to-cart-btn.is-added, .inventory-add-btn.is-added { color: #fff; box-shadow: 0 14px 28px rgba(8, 127, 120, .22); }
+.highlight-card:nth-child(3n + 1), .why-card:nth-child(3n + 1), .option-card:nth-child(3n + 1), .school-feature-card:nth-child(3n + 1), .program-card:nth-child(3n + 1),
+.highlight-card:nth-child(3n + 2), .why-card:nth-child(3n + 2), .option-card:nth-child(3n + 2), .school-feature-card:nth-child(3n + 2), .program-card:nth-child(3n + 2),
+.highlight-card:nth-child(3n), .why-card:nth-child(3n), .option-card:nth-child(3n), .school-feature-card:nth-child(3n), .program-card:nth-child(3n) { background: #fff; }
+.pathway-journey-card { background: #fff; }
+.pathway-enroll-link, .pathway-enroll-link:hover { background: #087f78; color: #fff; border-color: #087f78; }
+.journey-program-card .program-card-buttons .primary-btn,
+.journey-program-card .program-card-buttons .primary-btn:hover { background: #087f78; color: #fff; }
+.program-facts span.next-level { background: #eaf7f5; border-color: #b8ded9; color: #174c49; box-shadow: none; }
+.program-facts span.next-level strong { color: #174c49; }
+.inventory-preview, .inventory-item { background: #f4f6fa; border-color: #dce3eb; }
+.inventory-item:hover, .inventory-item.is-active { border-color: #087f78; background: #eaf7f5; }
+.program-facts span { background: #f4f6fa; border-color: #dce3eb; color: #344054; }
+.contact-image-card img { border-color: #eaf7f5; }
+.coaching-hero { background-image: linear-gradient(90deg, rgba(16, 28, 58, .92), rgba(16, 28, 58, .68)), url('../images/Students-building.jpg'); }
+.about-principle { padding: 24px; border: 1px solid #dce3eb; border-top: 3px solid #f4a340; border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); }
+.about-principle h3 { margin-bottom: 10px; }
+.about-contact-card { padding: 28px; border: 1px solid #b8ded9; border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); }
+.about-contact-card h3 { margin-bottom: 12px; }
+.about-contact-card > a, .about-contact-card > span { display: block; margin-top: 10px; color: #075e59; font-weight: 800; }
+.about-contact-card .button-row { margin-top: 18px; }
+.projects-hero { background-image: url('../images/exhibition.jpg'); }
+.project-carousel-controls { display: flex; justify-content: flex-end; gap: 10px; margin: 0 0 14px; }
+.carousel-button { min-width: 46px; min-height: 44px; padding: 9px 14px; border: 1px solid #087f78; border-radius: 999px; background: #fff; color: #075e59; font-weight: 800; cursor: pointer; }
+.carousel-button:hover { background: #eaf7f5; }
+.carousel-pause { min-width: 150px; }
+.carousel-button:focus-visible, .project-carousel:focus-visible { outline: 3px solid #f4a340; outline-offset: 3px; }
+.project-carousel { display: flex; gap: 18px; overflow-x: auto; padding: 4px 4px 18px; scroll-snap-type: x mandatory; scroll-padding-inline: 4px; scrollbar-color: #087f78 #eaf7f5; scrollbar-width: thin; overscroll-behavior-inline: contain; }
+.project-showcase-card { flex: 0 0 clamp(260px, 31vw, 350px); overflow: hidden; border: 1px solid #dce3eb; border-top: 3px solid #f4a340; border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); scroll-snap-align: start; }
+.project-showcase-card img { width: 100%; height: 220px; object-fit: cover; background: #eaf7f5; }
+.project-showcase-card .card-pad { padding: 20px; }
+.project-showcase-card h3 { margin: 7px 0 10px; }
+.project-showcase-card p { margin: 0; }
+.project-category { color: #075e59; font-size: .78rem; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.carousel-help { margin-top: 8px; color: #4b5568; font-size: .9rem; text-align: center; }
+[data-project-pause][hidden] { display: none; }
+@media (max-width: 720px) {
+  .project-showcase-card { flex-basis: min(82vw, 340px); }
+  .project-showcase-card img { height: 200px; }
+  .project-carousel-controls { justify-content: center; }
+}
+@media (max-width: 720px) {
+  .feature-list { grid-template-columns: 1fr; }
+  .coaching-visual, .coaching-visual img { min-height: 240px; }
+  .coaching-facts { grid-template-columns: 1fr; }
+}
+
 /* Motion */
 .reveal {
   opacity: 1;
@@ -1543,7 +1651,7 @@ main > section:nth-of-type(even):not(.hero):not(.page-hero):not(.dark-cta):not(.
 }
 
 /* Responsive */
-@media (max-width: 1120px) {
+@media (max-width: 1320px) {
   .navbar {
     position: absolute;
     top: calc(100% + 10px);
